@@ -3,6 +3,7 @@ Installing Apps in Linux Mint
 
 ## Quick start
 
+- `sudo apt update && sudo apt install git`
 - `git clone https://github.com/timamus/linux-mint-install-apps.git`
 - `cd linux-mint-install-apps/`
 - `find ./ -name "*.sh" -exec chmod +x {} \;`
