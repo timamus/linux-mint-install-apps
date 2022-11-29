@@ -8,7 +8,7 @@ sudo mintsources
 
 # Start by updating and upgrading all packages installed in the system
 echo -en "\033[1;33m Start by updating and upgrading all packages installed in the system... \033[0m \n"
-sudo apt update && sudo apt upgrade
+sudo apt update && sudo apt upgrade -y
 
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
