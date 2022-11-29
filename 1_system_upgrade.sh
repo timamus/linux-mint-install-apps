@@ -4,7 +4,7 @@ set -Eeuo pipefail
 
 # Update mirror list and set fastest download server
 echo -en "\033[1;33m Update mirror list and set fastest download server... \033[0m \n"
-mintsources
+sudo mintsources
 
 # Start by updating and upgrading all packages installed in the system
 echo -en "\033[1;33m Start by updating and upgrading all packages installed in the system... \033[0m \n"
