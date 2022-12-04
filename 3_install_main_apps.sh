@@ -49,7 +49,32 @@ sed -i 's/^\(qt_style\s*=\s*\).*$/\1kvantum-dark/' $HOME/.config/smplayer/smplay
 # Installing firefox
 curl --location "https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=ru" | tar --extract --verbose --preserve-permissions --bzip2
 sudo mv firefox /opt/firefox-dev
+sudo chown -R $USER /opt/firefox
 touch ~/.local/share/application/firefox-dev.desktop
+
+cat << EOF > ~/.local/share/application/firefox-dev.desktop
+[Desktop Entry]
+Name=Firefox Developer Edition
+GenericName=Web Browser
+Exec=/opt/firefox-dev/firefox %u
+Icon=/opt/firefox-dev/browser/chrome/icons/default/default128.png
+Terminal=false
+Type=Application
+MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true
+Categories=Network;WebBrowser;
+Keywords=web;browser;internet;
+Actions=new-window;new-private-window;
+StartupWMClass=Firefox Developer Edition
+
+[Desktop Action new-window]
+Name=Open a New Window
+Exec=/opt/firefox-dev/firefox %u
+
+[Desktop Action new-private-window]
+Name=Open a New Private Window
+Exec=/opt/firefox-dev/firefox --private-window %u
+EOF
 
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
