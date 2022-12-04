@@ -52,7 +52,7 @@ sudo mv firefox /opt/firefox-dev
 sudo chown -R $USER /opt/firefox
 touch ~/.local/share/application/firefox-dev.desktop
 
-cat << EOF > ~/.local/share/application/firefox-dev.desktop
+cat << EOF >> ~/.local/share/application/firefox-dev.desktop
 [Desktop Entry]
 Name=Firefox Developer Edition
 GenericName=Web Browser
