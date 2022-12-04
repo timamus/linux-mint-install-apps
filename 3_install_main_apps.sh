@@ -50,9 +50,9 @@ sed -i 's/^\(qt_style\s*=\s*\).*$/\1kvantum-dark/' $HOME/.config/smplayer/smplay
 curl --location "https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=ru" | tar --extract --verbose --preserve-permissions --bzip2
 sudo mv firefox /opt/firefox-dev
 sudo chown -R $USER /opt/firefox
-touch ~/.local/share/application/firefox-dev.desktop
+touch ~/.local/share/applications/firefox-dev.desktop
 
-cat << EOF >> ~/.local/share/application/firefox-dev.desktop
+cat << EOF > ~/.local/share/applications/firefox-dev.desktop
 [Desktop Entry]
 Name=Firefox Developer Edition
 GenericName=Web Browser
