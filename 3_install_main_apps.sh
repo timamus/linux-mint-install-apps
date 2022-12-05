@@ -116,5 +116,10 @@ Name=Quit Telegram
 Icon=application-exit
 EOF
 
+#installing bitwarden
+wget https://vault.bitwarden.com/download/?app=desktop&platform=linux&variant=appimage
+$HOME/.local/bin
+./MuseScore-3.4.2-x86_64.AppImage install
+
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
