@@ -84,5 +84,10 @@ wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | sudo apt-key 
 sudo add-apt-repository 'deb https://repo.vivaldi.com/archive/deb/ stable main'
 sudo apt update && sudo apt install vivaldi-stable
 
+# Installing telegram
+echo -en "\033[1;33m Installing telegram... \033[0m \n"
+curl --location "https://telegram.org/dl/desktop/linux" | sudo tar xJf linux -C /opt/
+sudo ln -s /opt/Telegram/Telegram /usr/local/bin/telegram-desktop
+
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
