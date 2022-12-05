@@ -58,7 +58,7 @@ cat << EOF > ~/.local/share/applications/firefox-dev.desktop
 [Desktop Entry]
 Name=Firefox Developer Edition
 GenericName=Web Browser
-Exec=/opt/firefox-dev/firefox %u
+Exec=firefox-dev %u
 Icon=/opt/firefox-dev/browser/chrome/icons/default/default128.png
 Terminal=false
 Type=Application
@@ -71,11 +71,11 @@ StartupWMClass=Firefox Developer Edition
 
 [Desktop Action new-window]
 Name=Open a New Window
-Exec=/opt/firefox-dev/firefox %u
+Exec=firefox-dev %u
 
 [Desktop Action new-private-window]
 Name=Open a New Private Window
-Exec=/opt/firefox-dev/firefox --private-window %u
+Exec=firefox-dev --private-window %u
 EOF
 
 # Installing vivaldi
@@ -86,8 +86,34 @@ sudo apt update && sudo apt install vivaldi-stable
 
 # Installing telegram
 echo -en "\033[1;33m Installing telegram... \033[0m \n"
-curl --location "https://telegram.org/dl/desktop/linux" | sudo tar xJf linux -C /opt/
+curl --location "https://telegram.org/dl/desktop/linux" | tar xJ --extract --verbose --preserve-permissions
+sudo mv Telegram /opt
+sudo chown -R $USER /opt/Telegram
 sudo ln -s /opt/Telegram/Telegram /usr/local/bin/telegram-desktop
+# Creating a desktop launcher
+cat << EOF > ~/.local/share/applications/telegram.desktop
+[Desktop Entry]
+Name=Telegram Desktop
+Comment=Official desktop version of Telegram messaging app
+TryExec=telegram-desktop
+Exec=telegram-desktop -- %u
+Icon=telegram
+Terminal=false
+StartupWMClass=TelegramDesktop
+Type=Application
+Categories=Chat;Network;InstantMessaging;Qt;
+MimeType=x-scheme-handler/tg;
+Keywords=tg;chat;im;messaging;messenger;sms;tdesktop;
+Actions=Quit;
+SingleMainWindow=true
+X-GNOME-UsesNotifications=true
+X-GNOME-SingleWindow=true
+
+[Desktop Action Quit]
+Exec=telegram-desktop -quit
+Name=Quit Telegram
+Icon=application-exit
+EOF
 
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
