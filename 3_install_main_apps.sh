@@ -78,5 +78,11 @@ Name=Open a New Private Window
 Exec=/opt/firefox-dev/firefox --private-window %u
 EOF
 
+# Installing vivaldi
+echo -en "\033[1;33m Installing vivaldi... \033[0m \n"
+wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | sudo apt-key add -
+sudo add-apt-repository 'deb https://repo.vivaldi.com/archive/deb/ stable main'
+sudo apt update && sudo apt install vivaldi-stable
+
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
