@@ -46,12 +46,14 @@ sed -i 's/^\(gui\s*=\s*\).*$/\1MiniGUI/' $HOME/.config/smplayer/smplayer.ini
 sed -i 's/^\(iconset\s*=\s*\).*$/\1PapirusDark/' $HOME/.config/smplayer/smplayer.ini
 sed -i 's/^\(qt_style\s*=\s*\).*$/\1kvantum-dark/' $HOME/.config/smplayer/smplayer.ini
 
-# Installing firefox
+# Installing firefox-developer-edition
+echo -en "\033[1;33m Installing firefox-developer-edition... \033[0m \n"
 curl --location "https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=ru" | tar --extract --verbose --preserve-permissions --bzip2
 sudo mv firefox /opt/firefox-dev
 sudo chown -R $USER /opt/firefox-dev
+# Creating a symbolic link to launch an application from the terminal with the command "firefox-dev"
 sudo ln -s /opt/firefox-dev/firefox /usr/local/bin/firefox-dev
-# Create
+# Creating a desktop launcher
 cat << EOF > ~/.local/share/applications/firefox-dev.desktop
 [Desktop Entry]
 Name=Firefox Developer Edition
