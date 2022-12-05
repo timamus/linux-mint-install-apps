@@ -89,6 +89,7 @@ echo -en "\033[1;33m Installing telegram... \033[0m \n"
 curl --location "https://telegram.org/dl/desktop/linux" | tar xJ --extract --verbose --preserve-permissions
 sudo mv Telegram /opt
 sudo chown -R $USER /opt/Telegram
+# Creating a symbolic link to launch an application from the terminal with the command "telegram-desktop"
 sudo ln -s /opt/Telegram/Telegram /usr/local/bin/telegram-desktop
 # Creating a desktop launcher
 cat << EOF > ~/.local/share/applications/telegram.desktop
