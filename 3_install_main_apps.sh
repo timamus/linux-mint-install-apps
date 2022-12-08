@@ -116,6 +116,9 @@ Name=Quit Telegram
 Icon=application-exit
 EOF
 
+flatpak install flathub org.telegram.desktop -y
+sudo flatpak override org.telegram.desktop --filesystem=host
+
 #installing bitwarden
 wget https://vault.bitwarden.com/download/?app=desktop&platform=linux&variant=appimage
 $HOME/.local/bin
