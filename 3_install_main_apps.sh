@@ -85,44 +85,17 @@ sudo add-apt-repository 'deb https://repo.vivaldi.com/archive/deb/ stable main'
 sudo apt update && sudo apt install vivaldi-stable
 
 # Installing telegram
-echo -en "\033[1;33m Installing telegram... \033[0m \n"
-curl --location "https://telegram.org/dl/desktop/linux" | tar xJ --extract --verbose --preserve-permissions
-sudo mv Telegram /opt
-sudo chown -R $USER /opt/Telegram
-# Creating a symbolic link to launch an application from the terminal with the command "telegram-desktop"
-sudo ln -s /opt/Telegram/Telegram /usr/local/bin/telegram-desktop
-# Creating a desktop launcher
-cat << EOF > ~/.local/share/applications/telegram.desktop
-[Desktop Entry]
-Name=Telegram Desktop
-Comment=Official desktop version of Telegram messaging app
-TryExec=telegram-desktop
-Exec=telegram-desktop -- %u
-Icon=telegram
-Terminal=false
-StartupWMClass=TelegramDesktop
-Type=Application
-Categories=Chat;Network;InstantMessaging;Qt;
-MimeType=x-scheme-handler/tg;
-Keywords=tg;chat;im;messaging;messenger;sms;tdesktop;
-Actions=Quit;
-SingleMainWindow=true
-X-GNOME-UsesNotifications=true
-X-GNOME-SingleWindow=true
-
-[Desktop Action Quit]
-Exec=telegram-desktop -quit
-Name=Quit Telegram
-Icon=application-exit
-EOF
-
+echo -en "\033[1;33m Installing telegram from flatpak... \033[0m \n"
 flatpak install flathub org.telegram.desktop -y
 sudo flatpak override org.telegram.desktop --filesystem=host
 
-#installing bitwarden
-wget https://vault.bitwarden.com/download/?app=desktop&platform=linux&variant=appimage
-$HOME/.local/bin
-./MuseScore-3.4.2-x86_64.AppImage install
+# Installing bitwarden
+echo -en "\033[1;33m Installing bitwarden from flatpak... \033[0m \n"
+flatpak install flathub com.bitwarden.desktop -y
+# Applying a dark theme to bitwarden
+# To select the gtk theme to install: flatpak install mint-y-dark
+flatpak install flathub org.gtk.Gtk3theme.Mint-Y-Dark -y
+sudo flatpak override com.bitwarden.desktop --env=GTK_STYLE_OVERRIDE=Mint-Y-Dark
 
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
