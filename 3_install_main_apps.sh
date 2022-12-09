@@ -92,6 +92,7 @@ sudo flatpak override org.telegram.desktop --filesystem=host
 # Installing bitwarden
 echo -en "\033[1;33m Installing bitwarden from flatpak... \033[0m \n"
 flatpak install flathub com.bitwarden.desktop -y
+sudo flatpak override com.bitwarden.desktop --filesystem=host
 # Applying a dark theme to bitwarden
 # To select the gtk theme to install: flatpak install mint-y-dark
 flatpak install flathub org.gtk.Gtk3theme.Mint-Y-Dark -y
