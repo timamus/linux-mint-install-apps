@@ -82,7 +82,7 @@ EOF
 echo -en "\033[1;33m Installing vivaldi... \033[0m \n"
 wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | sudo apt-key add -
 sudo add-apt-repository 'deb https://repo.vivaldi.com/archive/deb/ stable main'
-sudo apt update && sudo apt install vivaldi-stable
+sudo apt update && sudo apt -y install vivaldi-stable
 
 # Installing telegram
 echo -en "\033[1;33m Installing telegram from flatpak... \033[0m \n"
@@ -97,6 +97,23 @@ sudo flatpak override com.bitwarden.desktop --filesystem=host
 # To select the gtk theme to install: flatpak install mint-y-dark
 flatpak install flathub org.gtk.Gtk3theme.Mint-Y-Dark -y
 sudo flatpak override com.bitwarden.desktop --env=GTK_STYLE_OVERRIDE=Mint-Y-Dark
+
+# Installing goldendict
+echo -en "\033[1;33m Installing goldendict... \033[0m \n"
+sudo apt -y install goldendict
+
+# Installing calibre
+echo -en "\033[1;33m Installing calibre... \033[0m \n"
+sudo apt -y install calibre
+
+# Installing obsidian
+echo -en "\033[1;33m Installing obsidian from flatpak... \033[0m \n"
+flatpak install flathub md.obsidian.Obsidian -y
+sudo flatpak override md.obsidian.Obsidian --filesystem=host
+
+# Installing MS Core fonts
+echo -en "\033[1;33m Installing MS Core fonts... \033[0m \n"
+sudo apt -y install ttf-mscorefonts-installer
 
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
