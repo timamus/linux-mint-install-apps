@@ -142,7 +142,10 @@ sudo apt update && sudo apt install -y yd-tools
 
 # Installing tor-browser
 echo -en "\033[1;33m Installing tor-browser... \033[0m \n"
-sudo apt install -y torbrowser-launcher
+URL=$'https://tor.eff.org/download/' # Official mirror https://www.torproject.org/download/, may be blocked
+LINK=$(wget -qO- $URL | grep -oP -m 1 'href="\K/dist.+?ALL.tar.xz')
+URL='https://tor.eff.org'${LINK}
+curl --location $URL | tar xJ --extract --verbose --preserve-permissions
 
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
