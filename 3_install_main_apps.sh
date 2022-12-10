@@ -115,5 +115,11 @@ sudo flatpak override md.obsidian.Obsidian --filesystem=host
 echo -en "\033[1;33m Installing MS Core fonts... \033[0m \n"
 sudo apt -y install ttf-mscorefonts-installer
 
+# Installing ProtonVPN
+echo -en "\033[1;33m Installing ProtonVPN from AUR... \033[0m \n"
+URL=$'https://repo.protonvpn.com/debian/dists/stable/main/binary-all/'
+BINARY_FILE=$(wget -qO- $URL | grep -oP 'href="\Kprotonvpn-stable-release.+?deb')
+URL="${URL}${BINARY_FILE}"
+
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
