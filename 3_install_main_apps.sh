@@ -125,5 +125,9 @@ sudo dpkg -i $BINARY_FILE
 rm -f $BINARY_FILE
 sudo apt update && sudo apt -y install protonvpn
 
+# Installing luckybackup
+echo -en "\033[1;33m Installing luckybackup... \033[0m \n"
+sudo apt -y install luckybackup
+
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
