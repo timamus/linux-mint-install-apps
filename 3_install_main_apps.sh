@@ -129,5 +129,20 @@ sudo apt update && sudo apt -y install protonvpn
 echo -en "\033[1;33m Installing luckybackup... \033[0m \n"
 sudo apt -y install luckybackup
 
+# Installing yandex-disk
+echo -en "\033[1;33m Installing yandex-disk... \033[0m \n"
+echo "deb http://repo.yandex.ru/yandex-disk/deb/ stable main" | sudo tee -a /etc/apt/sources.list.d/yandex-disk.list > /dev/null
+wget http://repo.yandex.ru/yandex-disk/YANDEX-DISK-KEY.GPG -O- | sudo apt-key add -
+sudo apt update && sudo apt install -y yandex-disk
+
+# Installing yandex-disk-indicator
+echo -en "\033[1;33m Installing yandex-disk-indicator... \033[0m \n"
+sudo add-apt-repository ppa:slytomcat/ppa
+sudo apt update && sudo apt install -y yd-tools
+
+# Installing tor-browser
+echo -en "\033[1;33m Installing tor-browser... \033[0m \n"
+sudo apt install -y torbrowser-launcher
+
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
