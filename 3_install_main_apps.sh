@@ -146,6 +146,10 @@ URL=$'https://tor.eff.org/download/' # Official mirror https://www.torproject.or
 LINK=$(wget -qO- $URL | grep -oP -m 1 'href="\K/dist.+?ALL.tar.xz')
 URL='https://tor.eff.org'${LINK}
 curl --location $URL | tar xJ --extract --verbose --preserve-permissions
+sudo mv tor-browser /opt
+sudo chown -R $USER /opt/tor-browser
+cd /opt/tor-browser
+./start-tor-browser.desktop --register-app
 
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
