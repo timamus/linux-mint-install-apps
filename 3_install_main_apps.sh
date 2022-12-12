@@ -119,5 +119,16 @@ sudo chown -R $USER /opt/tor-browser
 cd /opt/tor-browser
 ./start-tor-browser.desktop --register-app
 
+# Installing steam
+# You can enable Proton in the Steam Client in Steam > Settings > Steam Play
+echo -en "\033[1;33m Installing steam... \033[0m \n"
+sudo apt install -y steam
+
+# Installing texstudio (there is also group texlive-lang if you need chinese, cyrillic, etc)
+# The path to change the program language: Options > Configure Texstudio > General > Language
+echo -en "\033[1;33m Installing texstudio... \033[0m \n"
+sudo pacman -S --noconfirm texstudio texlive-most texlive-bin
+sudo apt install texstudio
+
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
