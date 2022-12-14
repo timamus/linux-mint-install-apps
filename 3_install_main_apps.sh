@@ -124,11 +124,17 @@ cd /opt/tor-browser
 echo -en "\033[1;33m Installing steam... \033[0m \n"
 sudo apt install -y steam
 
-# Installing texstudio (there is also group texlive-lang if you need chinese, cyrillic, etc)
-# The path to change the program language: Options > Configure Texstudio > General > Language
-echo -en "\033[1;33m Installing texstudio... \033[0m \n"
-sudo pacman -S --noconfirm texstudio texlive-most texlive-bin
-sudo apt install texstudio
+# Installing texlive & latexmk
+echo -en "\033[1;33m Installing texlive & latexmk... \033[0m \n"
+sudo apt install -y texlive-full latexmk
+
+# Install language packs if the system language is Russian
+if [ $(locale | sed -n 's/^LANG=//p') == "ru_RU.UTF-8" ]; then
+  sudo pacman -S --noconfirm firefox-developer-edition-i18n-ru thunderbird-i18n-ru gimp-help-ru libreoffice-still-ru hunspell-ru #firefox-i18n-ru
+  # Installing hyphen-ru from AUR
+  echo -en "\033[1;33m Installing hyphen-ru from AUR... \033[0m \n"
+  yay -S --noconfirm hyphen-ru
+fi
 
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
