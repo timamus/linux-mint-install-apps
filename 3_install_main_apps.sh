@@ -130,10 +130,7 @@ sudo apt install -y texlive-full latexmk
 
 # Install language packs if the system language is Russian
 if [ $(locale | sed -n 's/^LANG=//p') == "ru_RU.UTF-8" ]; then
-  sudo pacman -S --noconfirm firefox-developer-edition-i18n-ru thunderbird-i18n-ru gimp-help-ru libreoffice-still-ru hunspell-ru #firefox-i18n-ru
-  # Installing hyphen-ru from AUR
-  echo -en "\033[1;33m Installing hyphen-ru from AUR... \033[0m \n"
-  yay -S --noconfirm hyphen-ru
+  sudo apt install -y firefox-locale-ru thunderbird-locale-ru gimp-help-ru
 fi
 
 echo -en "\033[0;35m Installation successfull \033[0m \n"
