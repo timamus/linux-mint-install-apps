@@ -2,6 +2,12 @@
 
 set -Eeuo pipefail
 
+# Installing nodejs & npm. Npm is needed for xamarin-android
+echo -en "\033[1;33m Installing nodejs & npm... \033[0m \n"
+sudo apt install -y nodejs npm
+# Upgrade Node.js
+npm install n -g
+
 # Installing visual studio code
 echo -en "\033[1;33m Installing visual studio code... \033[0m \n"
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
