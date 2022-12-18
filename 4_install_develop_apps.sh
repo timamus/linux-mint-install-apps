@@ -10,6 +10,13 @@ export PATH=$PATH:~/.npm-packages/bin
 # Upgrade Node.js
 sudo npm install n -g && sudo n stable # only this package install with sudo, because it update node version 
 
+# Installing dotnet version
+wget 'https://dot.net/v1/dotnet-install.sh'
+chmod +x ./dotnet-install.sh
+./dotnet-install.sh -c 6.0
+./dotnet-install.sh -c 6.0 --runtime aspnetcore
+echo 'export PATH=$PATH:/home/`whoami`/.dotnet' >> ~/.bashrc
+
 # Installing visual studio code
 echo -en "\033[1;33m Installing visual studio code... \033[0m \n"
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
