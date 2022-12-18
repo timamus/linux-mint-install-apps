@@ -6,8 +6,9 @@ set -Eeuo pipefail
 echo -en "\033[1;33m Installing nodejs & npm... \033[0m \n"
 sudo apt update && sudo apt install -y nodejs npm
 npm config set prefix ~/.npm-packages
+export PATH=$PATH:~/.npm-packages/bin
 # Upgrade Node.js
-npm install n -g
+sudo npm install n -g && sudo n stable # only this package install with sudo, because it update node version 
 
 # Installing visual studio code
 echo -en "\033[1;33m Installing visual studio code... \033[0m \n"
