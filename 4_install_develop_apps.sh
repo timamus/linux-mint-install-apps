@@ -2,6 +2,8 @@
 
 set -Eeuo pipefail
 
+sudo apt update
+
 # Installing nodejs & npm. Npm is needed for xamarin-android
 echo -en "\033[1;33m Installing nodejs & npm... \033[0m \n"
 sudo apt install -y nodejs npm
