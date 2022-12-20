@@ -10,6 +10,10 @@ export PATH=$PATH:~/.npm-packages/bin
 # Upgrade Node.js
 sudo npm install n -g && sudo n stable # only this package install with sudo, because it update node version 
 
+# Installing mono
+echo -en "\033[1;33m Installing mono... \033[0m \n"
+sudo apt install -y mono-complete
+
 # Installing dotnet version
 wget 'https://dot.net/v1/dotnet-install.sh'
 chmod +x ./dotnet-install.sh
