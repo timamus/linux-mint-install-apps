@@ -34,5 +34,10 @@ sudo apt install -y code # or code-insiders
 # Installing some extensions for visual studio code
 code --install-extension James-Yu.latex-workshop
 
+# Installing dbeaver with plugins
+echo -en "\033[1;33m Installing dbeaver with plugins... \033[0m \n"
+sudo add-apt-repository ppa:serge-rider/dbeaver-ce
+sudo apt update && sudo apt-get install -y dbeaver-ce
+
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
