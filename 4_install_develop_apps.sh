@@ -39,5 +39,10 @@ echo -en "\033[1;33m Installing dbeaver with plugins... \033[0m \n"
 sudo add-apt-repository ppa:serge-rider/dbeaver-ce
 sudo apt update && sudo apt-get install -y dbeaver-ce
 
+# Installing postman
+echo -en "\033[1;33m Installing postman from flatpak... \033[0m \n"
+flatpak install flathub com.getpostman.Postman -y
+sudo flatpak override com.getpostman.Postman --filesystem=host
+
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
