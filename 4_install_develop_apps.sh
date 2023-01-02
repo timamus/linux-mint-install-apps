@@ -43,6 +43,7 @@ sudo apt update && sudo apt-get install -y dbeaver-ce
 echo -en "\033[1;33m Installing postman from flatpak... \033[0m \n"
 flatpak install flathub com.getpostman.Postman -y
 sudo flatpak override com.getpostman.Postman --filesystem=host
+sudo flatpak override com.getpostman.Postman --env=GTK_STYLE_OVERRIDE=Mint-Y-Dark
 
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
