@@ -42,7 +42,11 @@ sudo apt update && sudo apt-get install -y dbeaver-ce
 # Installing postman
 echo -en "\033[1;33m Installing postman from flatpak... \033[0m \n"
 flatpak install flathub com.getpostman.Postman -y
-sudo flatpak override com.getpostman.Postman --filesystem=host
+# sudo flatpak override com.getpostman.Postman --filesystem=host
+# Applying a dark theme to postman
+# To select the gtk theme to install: flatpak install mint-y-dark
+flatpak install flathub org.gtk.Gtk3theme.Mint-Y-Dark -y
+sudo flatpak override com.getpostman.Postman --env=GTK_THEME=Mint-Y-Dark
 sudo flatpak override com.getpostman.Postman --env=GTK_STYLE_OVERRIDE=Mint-Y-Dark
 
 echo -en "\033[0;35m Installation successfull \033[0m \n"
