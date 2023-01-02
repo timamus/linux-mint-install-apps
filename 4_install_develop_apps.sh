@@ -35,13 +35,13 @@ DEST=$PWD/$FILE
 
 wget -cO  ${DEST} ${URL} --read-timeout=5 --tries=0
 DIR="/opt/jetbrains-toolbox"
-if mkdir ${DIR}; then
-    tar -xzf ${DEST} -C ${DIR} --strip-components=1
+if sudo mkdir -p ${DIR}; then
+    sudo tar -xzf ${DEST} -C ${DIR} --strip-components=1
 fi
-chmod -R +rwx ${DIR}
+sudo chmod -R +rwx ${DIR}
 
-ln -s ${DIR}/jetbrains-toolbox /usr/local/bin/jetbrains-toolbox
-chmod -R +rwx /usr/local/bin/jetbrains-toolbox
+sudo ln -s ${DIR}/jetbrains-toolbox /usr/local/bin/jetbrains-toolbox
+sudo chmod -R +rwx /usr/local/bin/jetbrains-toolbox
 rm ${DEST}
 
 sudo sed -i '/1.2.3.4 account.jetbrains.com/d' /etc/hosts
