@@ -29,23 +29,25 @@ URL=$(curl 'https://data.services.jetbrains.com/products/releases?code=TBA&lates
 echo $URL
 }
 getLatestUrl
-
 FILE=$(basename ${URL})
 DEST=$PWD/$FILE
-
+# Download and unpack jetbrains-toolbox
 wget -cO  ${DEST} ${URL} --read-timeout=5 --tries=0
 DIR="/opt/jetbrains-toolbox"
 if sudo mkdir -p ${DIR}; then
     sudo tar -xzf ${DEST} -C ${DIR} --strip-components=1
 fi
 sudo chmod -R +rwx ${DIR}
-
+# Creating a symbolic link to launch an application from the terminal with the command "jetbrains-toolbox"
 sudo ln -s ${DIR}/jetbrains-toolbox /usr/local/bin/jetbrains-toolbox
 sudo chmod -R +rwx /usr/local/bin/jetbrains-toolbox
+# Deleting the jetbrains-toolbox installation files
 rm ${DEST}
-
+# Adding the jetbrains hostname to the host file
 sudo sed -i '/1.2.3.4 account.jetbrains.com/d' /etc/hosts
 sudo bash -c "echo 1.2.3.4 account.jetbrains.com >> /etc/hosts"
+# Launching jetbrains-toolbox to create a desktop launcher
+jetbrains-toolbox
 
 # Installing visual studio code
 echo -en "\033[1;33m Installing visual studio code... \033[0m \n"
