@@ -4,6 +4,20 @@ set -Eeuo pipefail
 
 # Creating a swap file with automatic determination of its size for hibernation
 echo -en "\033[1;33m Creating a swap file with automatic determination of its size for hibernation... \033[0m \n"
+echo -en "\033[1;33m Check if there is a swapfile by default... \033[0m \n"
+if [[ -z $(swapon -s | grep "/swapfile") ]]; then # Check if the swapfile exists, if so, then delete it
+  echo -en "\033[1;33m Yes, the swap file exists! Deleting it... \033[0m \n"
+  sudo swapoff /swapfile && 
+  sudo sed -i '/[Ss]wap/d' /etc/fstab && 
+  sudo mount -a && 
+  sudo systemctl daemon-reload && 
+  [[ -f /swapfile ]] && sudo rm -rf /swapfile 
+  [[ -f /etc/default/grub.d/resume.cfg ]] && sudo rm -rf /etc/default/grub.d/resume.cfg 
+  sudo sed -i '/grub.d/d' /etc/default/grub && 
+  sudo sed -i 's@HibernateDelaySec=60min@#HibernateDelaySec=180min@g' /etc/systemd/sleep.conf && 
+  sudo update-grub
+fi
+
 # Calculate required swap size
 TOTAL_MEMORY_G=$(awk '/MemTotal/ { print ($2 / 1048576) }' /proc/meminfo)
 TOTAL_MEMORY_ROUND=$(echo "$TOTAL_MEMORY_G" | awk '{print ($0-int($0)<0.499)?int($0):int($0)+1}')
