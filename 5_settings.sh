@@ -17,7 +17,6 @@ if [[ $(swapon -s | grep "/swapfile") ]]; then # Check if the swapfile exists, i
   sudo sed -i 's@HibernateDelaySec=60min@#HibernateDelaySec=180min@g' /etc/systemd/sleep.conf && 
   sudo update-grub
 fi
-
 # Calculate required swap size
 TOTAL_MEMORY_G=$(awk '/MemTotal/ { print ($2 / 1048576) }' /proc/meminfo)
 TOTAL_MEMORY_ROUND=$(echo "$TOTAL_MEMORY_G" | awk '{print ($0-int($0)<0.499)?int($0):int($0)+1}')
@@ -36,10 +35,6 @@ if [[ -z "$(swapon -s)" ]]; then # Check if there is any swap (partition or file
     SWAP_DEVICE=$(findmnt -no UUID -T /swapfile)
     SWAP_FILE_OFFSET=$(sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}')
     sudo mkdir -p /etc/default/grub.d/
-#    if [[ -z $(grep "source /etc/default/grub.d/*" /etc/default/grub) ]]
-#      then
-#        sudo bash -c "echo -e '\n\nsource /etc/default/grub.d/resume.cfg' >> /etc/default/grub"
-#    fi
     sudo bash -c "echo -e '# Added by a script\nGRUB_CMDLINE_LINUX_DEFAULT=\"\$GRUB_CMDLINE_LINUX_DEFAULT resume=UUID=$SWAP_DEVICE resume_offset=$SWAP_FILE_OFFSET\"' > /etc/default/grub.d/resume.cfg"
     sudo update-grub
     sudo sed -i 's@#HibernateDelaySec=180min@HibernateDelaySec=60min@g' /etc/systemd/sleep.conf 
