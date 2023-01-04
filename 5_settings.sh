@@ -5,7 +5,7 @@ set -Eeuo pipefail
 # Creating a swap file with automatic determination of its size for hibernation
 echo -en "\033[1;33m Creating a swap file with automatic determination of its size for hibernation... \033[0m \n"
 echo -en "\033[1;33m Check if there is a swapfile by default... \033[0m \n"
-if [[ -z $(swapon -s | grep "/swapfile") ]]; then # Check if the swapfile exists, if so, then delete it
+if [[ $(swapon -s | grep "/swapfile") ]]; then # Check if the swapfile exists, if so, then delete it
   echo -en "\033[1;33m Yes, the swap file exists! Deleting it... \033[0m \n"
   sudo swapoff /swapfile && 
   sudo sed -i '/[Ss]wap/d' /etc/fstab && 
@@ -36,20 +36,20 @@ if [[ -z "$(swapon -s)" ]]; then # Check if there is any swap (partition or file
     SWAP_DEVICE=$(findmnt -no UUID -T /swapfile)
     SWAP_FILE_OFFSET=$(sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}')
     sudo mkdir -p /etc/default/grub.d/
-    if [[ -z $(grep "source /etc/default/grub.d/*" /etc/default/grub) ]]
-      then
-        sudo bash -c "echo -e '\n\nsource /etc/default/grub.d/resume.cfg' >> /etc/default/grub"
-    fi
+#    if [[ -z $(grep "source /etc/default/grub.d/*" /etc/default/grub) ]]
+#      then
+#        sudo bash -c "echo -e '\n\nsource /etc/default/grub.d/resume.cfg' >> /etc/default/grub"
+#    fi
     sudo bash -c "echo -e '# Added by a script\nGRUB_CMDLINE_LINUX_DEFAULT=\"\$GRUB_CMDLINE_LINUX_DEFAULT resume=UUID=$SWAP_DEVICE resume_offset=$SWAP_FILE_OFFSET\"' > /etc/default/grub.d/resume.cfg"
     sudo update-grub
     sudo sed -i 's@#HibernateDelaySec=180min@HibernateDelaySec=60min@g' /etc/systemd/sleep.conf 
     # Adding Hibernate to the shutdown dialog
     sudo tee /etc/polkit-1/localauthority/50-local.d/com.ubuntu.enable-hibernate.pkla <<'EOB'
-    [Enable hibernate]
-    Identity=unix-user:*
-    Action=org.freedesktop.login1.hibernate;org.freedesktop.login1.handle-hibernate-key;org.freedesktop.login1;org.freedesktop.login1.hibernate-multiple-sessions
-    ResultActive=yes
-    EOB
+[Enable hibernate]
+Identity=unix-user:*
+Action=org.freedesktop.login1.hibernate;org.freedesktop.login1.handle-hibernate-key;org.freedesktop.login1;org.freedesktop.login1.hibernate-multiple-sessions
+ResultActive=yes
+EOB
   fi
 else
   echo -en "\033[0;31m Cancelled! Swap already exists... \033[0m \n"
