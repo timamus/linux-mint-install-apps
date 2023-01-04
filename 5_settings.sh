@@ -7,14 +7,13 @@ echo -en "\033[1;33m Creating a swap file with automatic determination of its si
 echo -en "\033[1;33m Check if there is a swapfile by default... \033[0m \n"
 if [[ $(swapon -s | grep "/swapfile") ]]; then # Check if the swapfile exists, if so, then delete it
   echo -en "\033[1;33m Yes, the swap file exists! Deleting it... \033[0m \n"
-  sudo swapoff /swapfile && 
-  sudo sed -i '/[Ss]wap/d' /etc/fstab && 
-  sudo mount -a && 
-  sudo systemctl daemon-reload && 
-  [[ -f /swapfile ]] && sudo rm -rf /swapfile 
-  [[ -f /etc/default/grub.d/resume.cfg ]] && sudo rm -rf /etc/default/grub.d/resume.cfg 
-  sudo sed -i '/grub.d/d' /etc/default/grub && 
-  sudo sed -i 's@HibernateDelaySec=60min@#HibernateDelaySec=180min@g' /etc/systemd/sleep.conf && 
+  sudo swapoff /swapfile
+  sudo sed -i '/[Ss]wap/d' /etc/fstab
+  sudo mount -a
+  sudo systemctl daemon-reload
+  [[ -f /swapfile ]] && sudo rm -rf /swapfile
+  [[ -f /etc/default/grub.d/resume.cfg ]] && sudo rm -rf /etc/default/grub.d/resume.cfg
+  sudo sed -i 's@HibernateDelaySec=60min@#HibernateDelaySec=180min@g' /etc/systemd/sleep.conf
   sudo update-grub
 fi
 # Calculate required swap size
