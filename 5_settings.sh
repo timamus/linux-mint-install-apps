@@ -38,13 +38,18 @@ if [[ -z "$(swapon -s)" ]]; then # Check if there is any swap (partition or file
     sudo mkdir -p /etc/default/grub.d/
     if [[ -z $(grep "source /etc/default/grub.d/*" /etc/default/grub) ]]
       then
-        sudo bash -c "echo -e '\n\nsource /etc/default/grub.d/*' >> /etc/default/grub"
+        sudo bash -c "echo -e '\n\nsource /etc/default/grub.d/resume.cfg' >> /etc/default/grub"
     fi
     sudo bash -c "echo -e '# Added by a script\nGRUB_CMDLINE_LINUX_DEFAULT=\"\$GRUB_CMDLINE_LINUX_DEFAULT resume=UUID=$SWAP_DEVICE resume_offset=$SWAP_FILE_OFFSET\"' > /etc/default/grub.d/resume.cfg"
-    sudo sed -i 's/filesystems/filesystems resume/g' /etc/mkinitcpio.conf
-    sudo mkinitcpio -P
     sudo update-grub
     sudo sed -i 's@#HibernateDelaySec=180min@HibernateDelaySec=60min@g' /etc/systemd/sleep.conf 
+    # Adding Hibernate to the shutdown dialog
+    sudo tee /etc/polkit-1/localauthority/50-local.d/com.ubuntu.enable-hibernate.pkla <<'EOB'
+    [Enable hibernate]
+    Identity=unix-user:*
+    Action=org.freedesktop.login1.hibernate;org.freedesktop.login1.handle-hibernate-key;org.freedesktop.login1;org.freedesktop.login1.hibernate-multiple-sessions
+    ResultActive=yes
+    EOB
   fi
 else
   echo -en "\033[0;31m Cancelled! Swap already exists... \033[0m \n"
