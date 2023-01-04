@@ -75,5 +75,20 @@ gsettings set org.gnome.libgnomekbd.keyboard options "['grp\tgrp:alt_shift_toggl
 gsettings set org.cinnamon.desktop.interface keyboard-layout-show-flags false
 gsettings set org.cinnamon.desktop.interface keyboard-layout-use-upper true
 
+# Changing some Cinnamon settings (screen saver, sound, background, privacy)
+echo -en "\033[1;33m Changing some Cinnamon settings (screen saver, sound, background)... \033[0m \n"
+# Delay before screen saver is blocked
+gsettings set org.cinnamon.desktop.screensaver lock-delay 15
+# Setting the sound volume to 150%
+gsettings set org.cinnamon.desktop.sound maximum-volume 150
+# Background image format
+gsettings set org.cinnamon.desktop.background picture-options 'stretched'
+# Window frames 
+gsettings set org.cinnamon.desktop.wm.preferences theme 'Mint-Y'
+# In the right menu bar, reduce the size of the color icon to 16 px from 24px
+gsettings set org.cinnamon panel-zone-icon-sizes '[{"panelId": 1, "left": 48, "center": 0, "right": 16}]'
+# Disable the "Recent Files" feature in the Cinnamon desktop environment
+gsettings set org.cinnamon.desktop.privacy remember-recent-files false
+
 echo -en "\033[0;35m System settings are completed \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
