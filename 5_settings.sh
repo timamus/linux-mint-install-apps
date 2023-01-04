@@ -83,10 +83,14 @@ gsettings set org.cinnamon.desktop.screensaver lock-delay 15
 gsettings set org.cinnamon.desktop.sound maximum-volume 150
 # Background image format
 gsettings set org.cinnamon.desktop.background picture-options 'stretched'
-# Window frames 
-gsettings set org.cinnamon.desktop.wm.preferences theme 'Mint-Y'
+# Gtk theme
+gsettings set org.cinnamon.desktop.interface gtk-theme 'Mint-Y-Dark-Orange'
+# Icon theme
+gsettings set org.cinnamon.desktop.interface icon-theme 'Mint-Y-Dark-Orange'
+# Menu theme
+gsettings set org.cinnamon.theme name 'Mint-Y-Dark-Orange'
 # In the right menu bar, reduce the size of the color icon to 16 px from 24px
-gsettings set org.cinnamon panel-zone-icon-sizes '[{"panelId": 1, "left": 48, "center": 0, "right": 16}]'
+# gsettings set org.cinnamon panel-zone-icon-sizes '[{"panelId": 1, "left": 48, "center": 0, "right": 16}]'
 # Disable the "Recent Files" feature in the Cinnamon desktop environment
 gsettings set org.cinnamon.desktop.privacy remember-recent-files false
 
