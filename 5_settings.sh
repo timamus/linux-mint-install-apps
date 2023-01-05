@@ -101,7 +101,7 @@ gsettings set org.nemo.desktop trash-icon-visible true
 echo -en "\033[1;33m Check whether timeshift is installed to configure it... \033[0m \n"
 if which timeshift &> /dev/null ; then
   # Setting up timeshift
-  echo -en "\033[1;33m Configure timeshift for your PC. After setting up, close timeshift and the installation script will continue. This is necessary for the timeshift-autosnap script to work correctly... \033[0m \n"
+  echo -en "\033[1;33m Configure timeshift for your PC. After setting up, close timeshift and the configuration script will continue... \033[0m \n"
   sudo timeshift-launcher
 else
   echo -en "\033[0;31m Cancelled! The timeshift program was not installed... \033[0m \n"
