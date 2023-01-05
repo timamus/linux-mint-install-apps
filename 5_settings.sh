@@ -92,6 +92,10 @@ gsettings set org.cinnamon.theme name 'Mint-Y-Dark-Orange'
 # gsettings set org.cinnamon panel-zone-icon-sizes '[{"panelId": 1, "left": 48, "center": 0, "right": 16}]'
 # Disable the "Recent Files" feature in the Cinnamon desktop environment
 gsettings set org.cinnamon.desktop.privacy remember-recent-files false
+# Turn on the display of the "Computer" icon on the desktop
+gsettings set org.nemo.desktop computer-icon-visible true
+# Turn on the display of the "Trash" icon on the desktop
+gsettings set org.nemo.desktop trash-icon-visible true
 
 # Check if timeshift is installed in the system
 echo -en "\033[1;33m Check whether timeshift is installed to configure it... \033[0m \n"
