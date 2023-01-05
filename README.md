@@ -13,6 +13,16 @@ Installing Apps in Linux Mint
 - `./4_install_develop_apps.sh`
 - `./5_settings.sh`
 
+## Installing Linux Mint
+
+Recommendations for installing Linux Mint:
+
+- Check the encrypt home folder box
+
+## Setting up the Timeshift
+
+In the schedule tab, select the snapshot levels - month, and the number - 5. Other settings, leave by default.
+
 ## Install telegram
 
 ```
