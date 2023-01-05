@@ -9,32 +9,33 @@ sudo apt update && sudo apt -y install veracrypt
 
 # Installing virtualbox
 echo -en "\033[1;33m Installing virtualbox... \033[0m \n"
-sudo apt -y install virtualbox virtualbox-ext-pack
+sudo apt install -y virtualbox virtualbox-ext-pack
 sudo gpasswd -a $USER vboxusers
 
 # Installing remmina with rdp and vnc plugins
 echo -en "\033[1;33m Installing remmina with rdp and vnc plugins... \033[0m \n"
-sudo apt -y install remmina remmina-plugin-rdp remmina-plugin-secret
+sudo apt install -y remmina remmina-plugin-rdp remmina-plugin-secret
 
 # Installing gimp with help
 echo -en "\033[1;33m Installing gimp with help... \033[0m \n"
-sudo apt -y install gimp gimp-help-en
+sudo apt install -y gimp gimp-help-en
 
 # Installing krita
 echo -en "\033[1;33m Installing krita... \033[0m \n"
-sudo apt -y install krita
+sudo apt install -y krita
 
 # Installing inkscape
 echo -en "\033[1;33m Installing inkscape... \033[0m \n"
-sudo apt -y install inkscape
+sudo apt install -y inkscape
 
 # Installing shotcut
 echo -en "\033[1;33m Installing shotcut... \033[0m \n"
-sudo apt -y install shotcut
+sudo apt install -y shotcut
 
 # Installing smplayer with skins and themes
 echo -en "\033[1;33m Installing smplayer with skins and themes... \033[0m \n"
-sudo apt -y install smplayer smplayer-themes
+sudo add-apt-repository ppa:rvm/smplayer
+sudo apt update && sudo apt install -y smplayer smplayer-themes smplayer-skins
 smplayer -delete-config
 smplayer &
 echo "Waiting for 5 seconds for smplayer to open..."
@@ -50,7 +51,7 @@ sed -i 's/^\(qt_style\s*=\s*\).*$/\1kvantum-dark/' $HOME/.config/smplayer/smplay
 echo -en "\033[1;33m Installing vivaldi... \033[0m \n"
 wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | sudo apt-key add -
 sudo add-apt-repository 'deb https://repo.vivaldi.com/archive/deb/ stable main'
-sudo apt update && sudo apt -y install vivaldi-stable
+sudo apt update && sudo apt install -y vivaldi-stable
 
 # Installing telegram
 echo -en "\033[1;33m Installing telegram from flatpak... \033[0m \n"
@@ -68,11 +69,11 @@ sudo flatpak override com.bitwarden.desktop --env=GTK_STYLE_OVERRIDE=Mint-Y-Dark
 
 # Installing goldendict
 echo -en "\033[1;33m Installing goldendict... \033[0m \n"
-sudo apt -y install goldendict
+sudo apt install -y goldendict
 
 # Installing calibre
 echo -en "\033[1;33m Installing calibre... \033[0m \n"
-sudo apt -y install calibre
+sudo apt install -y calibre
 
 # Installing obsidian
 echo -en "\033[1;33m Installing obsidian from flatpak... \033[0m \n"
@@ -81,7 +82,7 @@ sudo flatpak override md.obsidian.Obsidian --filesystem=host
 
 # Installing MS Core fonts
 echo -en "\033[1;33m Installing MS Core fonts... \033[0m \n"
-sudo apt -y install ttf-mscorefonts-installer
+sudo apt install -y ttf-mscorefonts-installer
 
 # Installing ProtonVPN
 echo -en "\033[1;33m Installing ProtonVPN... \033[0m \n"
@@ -91,11 +92,11 @@ URL="${URL}${BINARY_FILE}"
 wget $URL
 sudo dpkg -i $BINARY_FILE
 rm -f $BINARY_FILE
-sudo apt update && sudo apt -y install protonvpn
+sudo apt update && sudo apt install -y protonvpn
 
 # Installing luckybackup
 echo -en "\033[1;33m Installing luckybackup... \033[0m \n"
-sudo apt -y install luckybackup
+sudo apt install -y luckybackup
 
 # Installing yandex-disk
 echo -en "\033[1;33m Installing yandex-disk... \033[0m \n"
