@@ -48,6 +48,46 @@ Addons:
 
 To configure Yandex.Disk, use the command: `yandex-disk setup`. If you plan to backup the Yandex.Disk folder via rsync, it is better not to use a dot in the folder name.
 
+### Applets
+
+> Battery Applet with Monitoring and Shutdown (BAMS)
+
+Install the BAMS applet, then run:
+
+```bash
+mkdir $HOME/batterymonitor@pdcurtis && 
+cp $HOME/.local/share/cinnamon/applets/batterymonitor@pdcurtis/stylesheet.css $HOME/batterymonitor@pdcurtis && 
+sed -i -e '0,/rgba(0,255,0,0.3)/s//rgba(0,0,0,0)/' -e '0,/rgba(0,255,0,0.3)/s//rgba(0,0,0,0)/' -e 's/rgba(0,255,0,0.5)/rgba(0,0,0,0)/' -e '0,/red/s//rgba(0,0,0,0)/' $HOME/batterymonitor@pdcurtis/stylesheet.css
+```
+
+or to fix the BAMS applet settings directly, use the command below, but you will have to do this when the applet is updated
+
+```bash
+sed -i -e '0,/rgba(0,255,0,0.3)/s//rgba(0,0,0,0)/' -e '0,/rgba(0,255,0,0.3)/s//rgba(0,0,0,0)/' -e 's/rgba(0,255,0,0.5)/rgba(0,0,0,0)/' -e '0,/red/s//rgba(0,0,0,0)/' $HOME/.local/share/cinnamon/applets/batterymonitor@pdcurtis/3.2/stylesheet.css
+```
+
+Install dependencies: `sudo pacman -S upower sox zenity`
+
+Then, in the applet settings, select the option "Compact - Battery Percentage without extended messages" in the "Display Mode" area.
+
+> ScreenShot+RecordDesktop
+
+Install dependencies: `sudo pacman -S ffmpeg xdotool xorg-xwininfo xorg-xdpyinfo`
+
+> inhibit@cinnamon.org
+
+### Desklets
+
+> diskspace@schorschii
+
+### Desktop wallpapers
+
+- https://wallpaperaccess.com/manjaro
+- https://www.reddit.com/r/wallpaper/
+- https://www.reddit.com/r/wallpaper/comments/sox44n/chill_vibes_3440_1440/
+- https://www.reddit.com/r/wallpaper/comments/sp0j3j/mountain_view_5120x2880/
+- https://gitlab.com/tromsite/tromjaro/iso-profiles/-/tree/master/tromjaro/xfce/live-overlay/usr/share/backgrounds
+
 ## Install telegram
 
 ```
