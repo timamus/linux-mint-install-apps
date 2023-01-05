@@ -88,6 +88,19 @@ Install dependencies: `sudo pacman -S ffmpeg xdotool xorg-xwininfo xorg-xdpyinfo
 - https://www.reddit.com/r/wallpaper/comments/sp0j3j/mountain_view_5120x2880/
 - https://gitlab.com/tromsite/tromjaro/iso-profiles/-/tree/master/tromjaro/xfce/live-overlay/usr/share/backgrounds
 
+### Favorite apps
+
+You can change your favorite applications in System Settings --> Favorite applications:
+
+- Music : mpv --> SMPlayer
+- Video : mpv --> SMPlayer
+- Photo : Pix --> Xviewer
+
+## Other resources
+
+- `git clone https://gitgud.io/hovereagle/manjaro_install_nonfree_components.git`
+- Go to https://3.jetbra.in/ or to https://jetbra.in/s click on any available hostname and follow the instructions
+
 ## Install telegram
 
 ```
