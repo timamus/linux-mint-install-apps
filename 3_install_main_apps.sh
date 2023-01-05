@@ -65,6 +65,7 @@ sudo flatpak override com.bitwarden.desktop --filesystem=host
 # Applying a dark theme to bitwarden
 # To select the gtk theme to install: flatpak install mint-y-dark
 flatpak install flathub org.gtk.Gtk3theme.Mint-Y-Dark -y
+sudo flatpak override com.bitwarden.desktop --env=GTK_THEME=Mint-Y-Dark
 sudo flatpak override com.bitwarden.desktop --env=GTK_STYLE_OVERRIDE=Mint-Y-Dark
 
 # Installing goldendict
