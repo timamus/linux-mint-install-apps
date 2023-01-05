@@ -129,10 +129,9 @@ sudo apt install -y steam
 echo -en "\033[1;33m Installing texlive & latexmk... \033[0m \n"
 sudo apt install -y texlive-full latexmk
 
-# Install language packs if the system language is Russian
-if [ $(locale | sed -n 's/^LANG=//p') == "ru_RU.UTF-8" ]; then
-  sudo apt install -y firefox-locale-ru thunderbird-locale-ru gimp-help-ru
-fi
+# Installing and removing language packs
+echo -en "\033[1;33m Install language packs by clicking on the 'Add and Remove languages' button... \033[0m \n"
+mintlocale
 
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
