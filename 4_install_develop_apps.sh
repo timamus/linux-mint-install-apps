@@ -64,7 +64,7 @@ code --install-extension James-Yu.latex-workshop
 
 # Installing dbeaver with plugins
 echo -en "\033[1;33m Installing dbeaver with plugins... \033[0m \n"
-sudo add-apt-repository ppa:serge-rider/dbeaver-ce
+sudo add-apt-repository ppa:serge-rider/dbeaver-ce -y
 sudo apt update && sudo apt-get install -y dbeaver-ce
 
 # Installing postman
