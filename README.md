@@ -23,6 +23,31 @@ Recommendations for installing Linux Mint:
 
 In the schedule tab, select the snapshot levels - month, and the number - 5. Other settings, leave by default.
 
+## Vivaldi Options
+
+Settings:
+
+- Themes --> Manjaro-Cinnamon
+- Tabs --> Enable Horizontal Scrolling
+- Privacy and Security --> Notifications --> Block
+
+Addons:
+
+- https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb
+
+## Firefox Options
+
+Addons:
+
+- https://addons.mozilla.org/ru/firefox/addon/ublock-origin/
+- https://addons.mozilla.org/ru/firefox/addon/bitwarden-password-manager/
+- https://addons.mozilla.org/ru/firefox/addon/new-tab-suspender/
+- https://addons.mozilla.org/ru/firefox/addon/musicpro/
+
+## Yandex.Disk
+
+To configure Yandex.Disk, use the command: `yandex-disk setup`. If you plan to backup the Yandex.Disk folder via rsync, it is better not to use a dot in the folder name.
+
 ## Install telegram
 
 ```
