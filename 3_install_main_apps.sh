@@ -4,7 +4,7 @@ set -Eeuo pipefail
 
 # Installing veracrypt
 echo -en "\033[1;33m Installing veracrypt... \033[0m \n"
-sudo add-apt-repository ppa:unit193/encryption
+sudo add-apt-repository ppa:unit193/encryption -y
 sudo apt update && sudo apt -y install veracrypt
 
 # Installing virtualbox
@@ -34,7 +34,7 @@ sudo apt install -y shotcut
 
 # Installing smplayer with skins and themes
 echo -en "\033[1;33m Installing smplayer with skins and themes... \033[0m \n"
-sudo add-apt-repository ppa:rvm/smplayer
+sudo add-apt-repository ppa:rvm/smplayer -y
 sudo apt update && sudo apt install -y smplayer smplayer-themes smplayer-skins
 smplayer -delete-config
 smplayer &
@@ -50,7 +50,7 @@ sed -i 's/^\(qt_style\s*=\s*\).*$/\1kvantum-dark/' $HOME/.config/smplayer/smplay
 # Installing vivaldi
 echo -en "\033[1;33m Installing vivaldi... \033[0m \n"
 wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | sudo apt-key add -
-sudo add-apt-repository 'deb https://repo.vivaldi.com/archive/deb/ stable main'
+sudo add-apt-repository 'deb https://repo.vivaldi.com/archive/deb/ stable main' -y
 sudo apt update && sudo apt install -y vivaldi-stable
 
 # Installing telegram
@@ -107,7 +107,7 @@ sudo apt update && sudo apt install -y yandex-disk
 
 # Installing yandex-disk-indicator
 echo -en "\033[1;33m Installing yandex-disk-indicator... \033[0m \n"
-sudo add-apt-repository ppa:slytomcat/ppa
+sudo add-apt-repository ppa:slytomcat/ppa -y
 sudo apt update && sudo apt install -y yd-tools
 
 # Installing tor-browser
