@@ -55,7 +55,7 @@ To configure Yandex.Disk, use the command: `yandex-disk setup`. If you plan to b
 Install the BAMS applet, then run:
 
 ```bash
-mkdir $HOME/batterymonitor@pdcurtis && 
+mkdir -p $HOME/batterymonitor@pdcurtis && 
 cp $HOME/.local/share/cinnamon/applets/batterymonitor@pdcurtis/5.4/stylesheet.css $HOME/batterymonitor@pdcurtis && 
 sed -i -e '0,/rgba(0,255,0,0.3)/s//rgba(0,0,0,0)/' -e '0,/rgba(0,255,0,0.3)/s//rgba(0,0,0,0)/' -e 's/rgba(0,255,0,0.5)/rgba(0,0,0,0)/' -e '0,/red/s//rgba(0,0,0,0)/' $HOME/batterymonitor@pdcurtis/stylesheet.css
 ```
