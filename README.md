@@ -90,11 +90,10 @@ Install dependencies: `sudo apt install -y ffmpeg xdotool x11-utils`
 
 ### Favorite apps
 
-You can change your favorite applications in System Settings --> Favorite applications:
+You can change your favorite applications in System Settings --> Preferred applications:
 
-- Music : mpv --> SMPlayer
-- Video : mpv --> SMPlayer
-- Photo : Pix --> Xviewer
+- Music : Celluloid --> SMPlayer
+- Video : Celluloid --> SMPlayer
 
 ## Other resources
 
