@@ -126,10 +126,6 @@ cd /opt/tor-browser
 echo -en "\033[1;33m Installing steam... \033[0m \n"
 sudo apt install -y steam
 
-# Installing texlive & latexmk
-echo -en "\033[1;33m Installing texlive & latexmk... \033[0m \n"
-sudo apt install -y texlive-full latexmk
-
 # Installing and removing language packs
 echo -en "\033[1;33m Install the language packs by clicking on the 'Installing and removing languages...' button \033[0m \n"
 mintlocale
