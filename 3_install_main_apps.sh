@@ -127,7 +127,7 @@ echo -en "\033[1;33m Installing steam... \033[0m \n"
 sudo apt install -y steam
 
 # Installing and removing language packs
-echo -en "\033[1;33m Install the language packs by clicking on the 'Installing and removing languages...' button \033[0m \n"
+echo -en "\033[1;33m Install the language packs by clicking on the 'Install / Remove Languages...' button \033[0m \n"
 mintlocale
 
 echo -en "\033[0;35m Installation successfull \033[0m \n"
