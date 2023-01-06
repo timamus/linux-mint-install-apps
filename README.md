@@ -27,7 +27,7 @@ In the schedule tab, select the snapshot levels - month, and the number - 5. Oth
 
 Settings:
 
-- Themes --> Manjaro-Cinnamon
+- Themes --> Issuna
 - Tabs --> Enable Horizontal Scrolling
 - Privacy and Security --> Notifications --> Block
 
