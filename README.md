@@ -111,7 +111,7 @@ To install LaTex, run the command: `sudo apt install -y texlive-full latexmk`
 
 3) Press Ctrl+Alt+v to view generated PDF file (select the Preview Inside VSCode option to open it side-by-side with the editor). Edit the .tex file to see changes reflected in PDF in real time.
 
-## Install telegram
+## Install telegram not from flatpak
 
 ```
 # Installing telegram
