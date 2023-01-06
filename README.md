@@ -63,7 +63,7 @@ sed -i -e '0,/rgba(0,255,0,0.3)/s//rgba(0,0,0,0)/' -e '0,/rgba(0,255,0,0.3)/s//r
 or to fix the BAMS applet settings directly, use the command below, but you will have to do this when the applet is updated
 
 ```bash
-sed -i -e '0,/rgba(0,255,0,0.3)/s//rgba(0,0,0,0)/' -e '0,/rgba(0,255,0,0.3)/s//rgba(0,0,0,0)/' -e 's/rgba(0,255,0,0.5)/rgba(0,0,0,0)/' -e '0,/red/s//rgba(0,0,0,0)/' $HOME/.local/share/cinnamon/applets/batterymonitor@pdcurtis/3.2/stylesheet.css
+sed -i -e '0,/rgba(0,255,0,0.3)/s//rgba(0,0,0,0)/' -e '0,/rgba(0,255,0,0.3)/s//rgba(0,0,0,0)/' -e 's/rgba(0,255,0,0.5)/rgba(0,0,0,0)/' -e '0,/red/s//rgba(0,0,0,0)/' $HOME/.local/share/cinnamon/applets/batterymonitor@pdcurtis/5.4/stylesheet.css
 ```
 
 Install dependencies: `sudo apt-get install -y zenity sox libsox-fmt-mp3`
