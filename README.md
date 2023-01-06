@@ -101,6 +101,16 @@ You can change your favorite applications in System Settings --> Favorite applic
 - `git clone https://gitgud.io/hovereagle/manjaro_install_nonfree_components.git`
 - Go to https://3.jetbra.in/ or to https://jetbra.in/s click on any available hostname and follow the instructions
 
+## Installing LaTex and using it in VS Code
+
+To install LaTex, run the command: `sudo apt install -y texlive-full latexmk`
+
+1) If VS Code was not installed using this script, then open VS Code and install the latex-workshop extension.
+
+2) Now open any .tex file and press Ctrl+Alt+b to build (or use VSCode Command Palette to run command LaTeX Workshop: Build with Recipe). From the options that pop up, select latexmk recipe.
+
+3) Press Ctrl+Alt+v to view generated PDF file (select the Preview Inside VSCode option to open it side-by-side with the editor). Edit the .tex file to see changes reflected in PDF in real time.
+
 ## Install telegram
 
 ```
