@@ -45,7 +45,7 @@ My recommendation:
    c. Encrypted → check the box and enter the password  
    d. Mountpoint → select / (root) → OK  
 
-Install boot loader on: Master Boot Record of SOME_DISK_NAME (/dev/sda)
+Device for boot loader installation: /dev/sda SOME_DISK_NAME (SIZE)
 
 ## Setting up the Timeshift
 
