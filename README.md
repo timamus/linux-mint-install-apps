@@ -25,14 +25,14 @@ First, click on the "New Partition Table" button and click "Continue".
 
 My recommendation:
 
-1. EFI PARTITION\*  
+1. EFI PARTITION  
    Select the free space → Create partition  
    a. Size → input 300  
    b. Type for the new partition → select Primary  
    c. Location for the new partition → select Beginning of this space  
    d. Use as → select EFI System Partition  
 
-2. BOOT PARTITION\*  
+2. BOOT PARTITION  
    Select the free space → Create partition  
    a. Size → input 768  
    b. Type for the new partition → select Primary  
@@ -45,7 +45,7 @@ My recommendation:
    a. Size → use all remaining available space  
    b. Type for the new partition → select Primary  
    c. Location for the new partition → select Beginning of this space  
-   d. Use as → select physical volume for encryption  
+   d. Use as → select physical volume for encryption\*  
    e. Choose a security key → enter your password  
    f. Confirm the security key → confirm your password  
    g. Find the "/dev/mapper/sda3_crypt" partition with ext4 type, click change, then Mount point → select / (root) → OK  
