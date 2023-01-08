@@ -21,16 +21,16 @@ Recommendations for installing Linux Mint:
 
 ## How to do manual partitioning
 
-First, click on the "New Partition Table" button and select "GUID Partition Table (GPT)". 
+First, click on the "New Partition Table" button and click "Continue". 
 
 My recommendation:
 
 1. EFI PARTITION\*  
    Select the free space → Create  
    a. Size → input 300  
-   b. Filesystem → select FAT32  
-   c. Mountpoint → select /boot/efi  
-   d. Flags → check boot → OK  
+   b. Type for the new partition → select Primary  
+   c. Location for the new partition → select Beginning of this space
+   d. Use as → select EFI System Partition  
 
 2. BOOT PARTITION\*  
    Select the free space → Create  
