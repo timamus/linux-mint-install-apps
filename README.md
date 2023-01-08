@@ -19,6 +19,34 @@ Recommendations for installing Linux Mint:
 
 - Check the encrypt home folder box
 
+## How to do manual partitioning
+
+First, click on the "New Partition Table" button and select "GUID Partition Table (GPT)". 
+
+My recommendation:
+
+1. EFI PARTITION\*  
+   Select the free space → Create  
+   a. Size → input 300  
+   b. Filesystem → select FAT32  
+   c. Mountpoint → select /boot/efi  
+   d. Flags → check boot → OK  
+
+2. BOOT PARTITION\*  
+   Select the free space → Create  
+   a. Size → input 768  
+   b. Filesystem → select ext4  
+   c. Mountpoint → select /boot  
+
+3. ROOT PARTITION  
+   Select the free space → Create  
+   a. Size → use all remaining available space  
+   b. Filesystem → select btrfs or ext4  
+   c. Encrypted → check the box and enter the password  
+   d. Mountpoint → select / (root) → OK  
+
+Install boot loader on: Master Boot Record of SOME_DISK_NAME (/dev/sda)
+
 ## Setting up the Timeshift
 
 In the schedule tab, select the snapshot levels - month, and the number - 5. Other settings, leave by default.
