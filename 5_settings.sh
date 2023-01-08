@@ -108,8 +108,8 @@ else
 fi
 
 # Installing recommended drivers
-echo -en "\033[1;33m Install the recommended drivers. After installation, close the Driver Manager and the configuration script will continue... \033[0m \n"
-sudo mintdrivers
+echo -en "\033[1;33m Install the recommended drivers. After installation, close the Driver Manager and reboot system... \033[0m \n"
+mintdrivers
 
 echo -en "\033[0;35m System settings are completed \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
