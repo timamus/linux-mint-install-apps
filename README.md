@@ -26,20 +26,22 @@ First, click on the "New Partition Table" button and click "Continue".
 My recommendation:
 
 1. EFI PARTITION\*  
-   Select the free space → Create  
+   Select the free space → Create partition  
    a. Size → input 300  
    b. Type for the new partition → select Primary  
    c. Location for the new partition → select Beginning of this space  
    d. Use as → select EFI System Partition  
 
 2. BOOT PARTITION\*  
-   Select the free space → Create  
+   Select the free space → Create partition  
    a. Size → input 768  
-   b. Filesystem → select ext4  
-   c. Mountpoint → select /boot  
+   b. Type for the new partition → select Primary  
+   c. Location for the new partition → select Beginning of this space  
+   d. Use as → select Ext4 journaling file system  
+   e. Mount point → select /boot  
 
 3. ROOT PARTITION  
-   Select the free space → Create  
+   Select the free space → Create partition  
    a. Size → use all remaining available space  
    b. Filesystem → select btrfs or ext4  
    c. Encrypted → check the box and enter the password  
