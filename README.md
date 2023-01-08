@@ -29,7 +29,7 @@ My recommendation:
    Select the free space → Create  
    a. Size → input 300  
    b. Type for the new partition → select Primary  
-   c. Location for the new partition → select Beginning of this space
+   c. Location for the new partition → select Beginning of this space  
    d. Use as → select EFI System Partition  
 
 2. BOOT PARTITION\*  
