@@ -43,9 +43,12 @@ My recommendation:
 3. ROOT PARTITION  
    Select the free space → Create partition  
    a. Size → use all remaining available space  
-   b. Filesystem → select btrfs or ext4  
-   c. Encrypted → check the box and enter the password  
-   d. Mountpoint → select / (root) → OK  
+   b. Type for the new partition → select Primary  
+   c. Location for the new partition → select Beginning of this space  
+   d. Use as → select physical volume for encryption  
+   e. Choose a security key → enter your password  
+   f. Confirm the security key → confirm your password  
+   g. Find the "/dev/mapper/sda3_crypt" partition with ext4 type, click change, then Mount point → select / (root) → OK  
 
 Device for boot loader installation: /dev/sda SOME_DISK_NAME (SIZE)
 
