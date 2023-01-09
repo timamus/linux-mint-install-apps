@@ -139,7 +139,7 @@ You can change your favorite applications in System Settings --> Preferred appli
 
 ## Other resources
 
-- `git clone https://gitgud.io/hovereagle/manjaro_install_nonfree_components.git`
+- `git clone https://gitgud.io/hovereagle/linux-mint-install-nonfree-components.git`
 - Go to https://3.jetbra.in/ or to https://jetbra.in/s click on any available hostname and follow the instructions
 
 ## Installing LaTex and using it in VS Code
