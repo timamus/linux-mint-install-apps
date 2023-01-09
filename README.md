@@ -51,7 +51,7 @@ Device for boot loader installation: /dev/sda SOME_DISK_NAME (SIZE)
 - No filesystem metadata leaked
 - Everything is encrypted, not just certain directories
 
-Linux Mint also offers to encrypt the user's home folder (not recommended). This is useful if other users will be present in the system, but also has other limitations:
+Linux Mint also offers to encrypt the user's home folder (**not recommended**). This is useful if other users will be present in the system, but also has other limitations:
 
 - May leak filenames (eCryptfs encrypts filenames by default, but there is an option to disable this)
 - Leaks a significant amount of metadata:  
