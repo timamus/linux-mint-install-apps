@@ -55,11 +55,11 @@ Linux Mint also offers to encrypt the user's home folder (not recommended). This
 
 - May leak filenames (eCryptfs encrypts filenames by default, but there is an option to disable this)
 - Leaks a significant amount of metadata:  
-   Directory layout (directory structure, number of files in each directory)  
-   File size (with the precision of a block size, generally 4KiB)  
-   File metadata; can include owner, permissions, creation date, modification date, access date, and more  
+   - Directory layout (directory structure, number of files in each directory)  
+   - File size (with the precision of a block size, generally 4KiB)  
+   - File metadata; can include owner, permissions, creation date, modification date, access date, and more  
 - Data outside of home  
-   Some programs will write things on /tmp, log files are going to /var/log, swap will contain sensitive data. Those directories are outside of your home, and will not be protected.   
+   - Some programs will write things on /tmp, log files are going to /var/log, swap will contain sensitive data. Those directories are outside of your home, and will not be protected.   
 
 ## Setting up the Timeshift
 
