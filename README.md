@@ -156,7 +156,7 @@ To install LaTex, run the command: `sudo apt install -y texlive-full latexmk`
 
 - https://www.davidrevoy.com/article854/krita-brushes-2021-bundle
 
-## Install telegram not from flatpak
+## Install telegram (not from flatpak)
 
 ```
 # Installing telegram
