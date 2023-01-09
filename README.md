@@ -152,6 +152,10 @@ To install LaTex, run the command: `sudo apt install -y texlive-full latexmk`
 
 3) Press Ctrl+Alt+v to view generated PDF file (select the Preview Inside VSCode option to open it side-by-side with the editor). Edit the .tex file to see changes reflected in PDF in real time.
 
+## Krita brushes
+
+- https://www.davidrevoy.com/article854/krita-brushes-2021-bundle
+
 ## Install telegram not from flatpak
 
 ```
