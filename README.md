@@ -59,11 +59,7 @@ Linux Mint also offers to encrypt the user's home folder (not recommended). This
    File size (with the precision of a block size, generally 4KiB)  
    File metadata; can include owner, permissions, creation date, modification date, access date, and more  
 - Data outside of home  
-   Some programs will write things on /tmp, log files are going to /var/log, swap will contain sensitive data. Those directories are outside of your home, and will not be protected.  
-- Protection against tampering  
-   If your computer breaks down for any reason, and you must send it to repairs, your home is protected, your system isn't. It will be trivial to replace binaries, or put backdoors in place.  
-- Protect login password, WiFi passwords, and databases  
-   The same support technician can copy /etc/shadow, all data from NetworkManager, anything on /var/lib/mysql, and so on. With full disk encryption, nothing can be copied.  
+   Some programs will write things on /tmp, log files are going to /var/log, swap will contain sensitive data. Those directories are outside of your home, and will not be protected.   
 
 ## Setting up the Timeshift
 
