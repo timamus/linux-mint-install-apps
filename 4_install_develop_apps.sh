@@ -20,6 +20,7 @@ chmod +x ./dotnet-install.sh
 ./dotnet-install.sh -c 6.0
 ./dotnet-install.sh -c 6.0 --runtime aspnetcore
 echo 'export PATH=$PATH:/home/`whoami`/.dotnet' >> ~/.bashrc
+rm dotnet-install.sh
 
 # Installing jetbrains-toolbox
 echo -en "\033[1;33m Installing jetbrains-toolbox... \033[0m \n"
