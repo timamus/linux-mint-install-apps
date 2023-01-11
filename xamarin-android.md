@@ -12,12 +12,12 @@
 6.2 Extract it: `tar xjf ./xamarin.android-oss-v{VERSION}_Linux-x86_64_HEAD{*}.tar.bz2`  
 6.3 Goto the unpacked dir: `cd ./xamarin.android-oss-v{VERSION}_Linux-x86_64_HEAD{*}`  
 6.4 Make dirs:
-    - `sudo mkdir "/usr/lib/xamarin.android"`  
-    - `sudo mkdir "/usr/lib/mono/xbuild/Xamarin/"`
+- `sudo mkdir "/usr/lib/xamarin.android"`  
+- `sudo mkdir "/usr/lib/mono/xbuild/Xamarin/"`
 6.5 Copy dir form extracted files: `sudo cp -a "bin/Release/lib/xamarin.android/." "/usr/lib/xamarin.android/"`  
 6.6 Delete dirs for next steps:  
-    - `sudo rm -rf "/usr/lib/mono/xbuild/Xamarin/Android"`  
-    - `sudo rm -rf "/usr/lib/mono/xbuild-frameworks/MonoAndroid"`
+- `sudo rm -rf "/usr/lib/mono/xbuild/Xamarin/Android"`  
+- `sudo rm -rf "/usr/lib/mono/xbuild-frameworks/MonoAndroid"`
 
 ## 2. Adding udev rules (required for USB debugging)
 
