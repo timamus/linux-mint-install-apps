@@ -116,6 +116,7 @@ URL='https://tor.eff.org/download/' # Official mirror https://www.torproject.org
 LINK=$(wget -qO- $URL | grep -oP -m 1 'href="\K/dist.+?ALL.tar.xz' || true) # https://stackoverflow.com/questions/75081074/the-script-sometimes-doesnt-run-after-wget
 URL='https://tor.eff.org'${LINK}
 curl --location $URL | tar xJ --extract --verbose --preserve-permissions
+sudo rm -rf /opt/tor-browser
 sudo mv tor-browser /opt
 sudo chown -R $USER /opt/tor-browser
 cd /opt/tor-browser
