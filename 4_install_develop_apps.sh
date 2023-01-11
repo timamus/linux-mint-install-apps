@@ -19,6 +19,7 @@ wget 'https://dot.net/v1/dotnet-install.sh'
 chmod +x ./dotnet-install.sh
 ./dotnet-install.sh -c 6.0
 ./dotnet-install.sh -c 6.0 --runtime aspnetcore
+sed -i '/.dotnet/d' ~/.bashrc
 echo 'export PATH=$PATH:/home/`whoami`/.dotnet' >> ~/.bashrc
 rm dotnet-install.sh
 
