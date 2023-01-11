@@ -2,20 +2,20 @@
 
 ## 1. Xamarin.Android package
 
-1. Download the current release of Xamarin.Android from the build server: https://dev.azure.com/xamarin/public/_build?definitionId=48&_a=summary
-2. Pick one where both stages were successfull and click on it.
-3. In the "Summary" box, check for "Related" and click on "n published" below it.
-4. Download the "installers-unsigned - Linux" (Using the 3 dots menu on the far right)
-5. Unzip the downloaded file.
-6. If possible install using your package manager. <br>  
-6.1 Choose and extract xamarin.android-oss-v{VERSION}_Linux-x86_64_HEAD{*}.tar.bz2 archive from installers-unsigned - Linux.zip  
-6.2 Extract it: `tar xjf ./xamarin.android-oss-v{VERSION}_Linux-x86_64_HEAD{*}.tar.bz2`  
-6.3 Goto the unpacked dir: `cd ./xamarin.android-oss-v{VERSION}_Linux-x86_64_HEAD{*}`  
-6.4 Make dirs:  
+1) Download the current release of Xamarin.Android from the build server: https://dev.azure.com/xamarin/public/_build?definitionId=48&_a=summary
+2) Pick one where both stages were successfull and click on it.
+3) In the "Summary" box, check for "Related" and click on "n published" below it.
+4) Download the "installers-unsigned - Linux" (Using the 3 dots menu on the far right)
+5) Unzip the downloaded file.
+6) If possible install using your package manager. <br>
+6.1) Choose and extract xamarin.android-oss-v{VERSION}_Linux-x86_64_HEAD{*}.tar.bz2 archive from installers-unsigned - Linux.zip  
+6.2) Extract it: `tar xjf ./xamarin.android-oss-v{VERSION}_Linux-x86_64_HEAD{*}.tar.bz2`  
+6.3) Goto the unpacked dir: `cd ./xamarin.android-oss-v{VERSION}_Linux-x86_64_HEAD{*}`  
+6.4) Make dirs:  
     - `sudo mkdir "/usr/lib/xamarin.android"`  
     - `sudo mkdir "/usr/lib/mono/xbuild/Xamarin/"`  
-6.5 Copy dir form extracted files: `sudo cp -a "bin/Release/lib/xamarin.android/." "/usr/lib/xamarin.android/"`  
-6.6 Delete dirs for next steps:  
+6.5) Copy dir form extracted files: `sudo cp -a "bin/Release/lib/xamarin.android/." "/usr/lib/xamarin.android/"`  
+6.6) Delete dirs for next steps:  
     - `sudo rm -rf "/usr/lib/mono/xbuild/Xamarin/Android"`  
     - `sudo rm -rf "/usr/lib/mono/xbuild-frameworks/MonoAndroid"`  
 
