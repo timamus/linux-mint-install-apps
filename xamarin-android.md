@@ -18,6 +18,9 @@
 6.6 Delete dirs for next steps:  
   - `sudo rm -rf "/usr/lib/mono/xbuild/Xamarin/Android"`  
   - `sudo rm -rf "/usr/lib/mono/xbuild-frameworks/MonoAndroid"`  
+6.7 Make Symlinks:  
+  - `sudo ln -s "/usr/lib/xamarin.android/xbuild/Xamarin/Android/" "/usr/lib/mono/xbuild/Xamarin/Android"`  
+  - `sudo ln -s "/usr/lib/xamarin.android/xbuild-frameworks/MonoAndroid/" "/usr/lib/mono/xbuild-frameworks/MonoAndroid"`  
 
 ## 2. Adding udev rules (required for USB debugging)
 
