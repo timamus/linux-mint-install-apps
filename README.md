@@ -65,6 +65,24 @@ Linux Mint also offers to encrypt the user's home folder (**not recommended**). 
 
 In the location tab, for the "Select Snapshot Location" field, select: sda3 --> dm-0. In the schedule tab, select the snapshot levels - month, and the number - 5. Other settings, leave by default.
 
+## Splash screen
+
+To fix low splash screen resolution after installing proprietary drivers:
+
+```bash
+KERNEL_DRIVER=$(lspci -nnk | egrep -i --color 'vga|3d|2d' -A3 | grep 'in use' | head -1 | sed -r 's/^[^:]*: //') && 
+if [[ "$KERNEL_DRIVER" = "nvidia" ]] ; then 
+   sudo sed -i 's/quiet/video=efifb:nobgrt nvidia-drm.modeset=1 quiet splash/' /etc/default/grub 
+fi 
+if [[ "$KERNEL_DRIVER" = "i915" ]] ; then 
+   sudo sed -i 's/quiet/video=efifb:nobgrt i915.modeset=1 quiet splash/' /etc/default/grub 
+fi 
+if [[ "$KERNEL_DRIVER" = "radeon" ]] ; then 
+   sudo sed -i 's/quiet/video=efifb:nobgrt radeon.modeset=1 quiet splash/' /etc/default/grub 
+fi 
+sudo update-grub
+```
+
 ## Vivaldi Options
 
 Settings:
