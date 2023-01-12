@@ -72,13 +72,13 @@ To fix low splash screen resolution after installing proprietary drivers:
 ```bash
 KERNEL_DRIVER=$(lspci -nnk | egrep -i --color 'vga|3d|2d' -A3 | grep 'in use' | head -1 | sed -r 's/^[^:]*: //') && 
 if [[ "$KERNEL_DRIVER" = "nvidia" ]] ; then 
-   sudo bash -c "echo -e '# Added by a script\nGRUB_CMDLINE_LINUX_DEFAULT=\"\$GRUB_CMDLINE_LINUX_DEFAULT video=efifb:nobgrt nvidia-drm.modeset=1\"' > /etc/default/grub.d/resume.cfg" 
+   sudo bash -c "echo -e '# Added by a script\nGRUB_CMDLINE_LINUX_DEFAULT=\"\$GRUB_CMDLINE_LINUX_DEFAULT video=efifb:nobgrt nvidia-drm.modeset=1\"' > /etc/default/grub.d/splash.cfg" 
 fi 
 if [[ "$KERNEL_DRIVER" = "i915" ]] ; then 
-   sudo sed -i 's/quiet/video=efifb:nobgrt i915.modeset=1 quiet splash/' /etc/default/grub 
+   sudo bash -c "echo -e '# Added by a script\nGRUB_CMDLINE_LINUX_DEFAULT=\"\$GRUB_CMDLINE_LINUX_DEFAULT video=efifb:nobgrt i915.modeset=1\"' > /etc/default/grub.d/splash.cfg" 
 fi 
 if [[ "$KERNEL_DRIVER" = "radeon" ]] ; then 
-   sudo sed -i 's/quiet/video=efifb:nobgrt radeon.modeset=1 quiet splash/' /etc/default/grub 
+   sudo bash -c "echo -e '# Added by a script\nGRUB_CMDLINE_LINUX_DEFAULT=\"\$GRUB_CMDLINE_LINUX_DEFAULT video=efifb:nobgrt radeon.modeset=1\"' > /etc/default/grub.d/splash.cfg" 
 fi 
 sudo update-grub
 ```
