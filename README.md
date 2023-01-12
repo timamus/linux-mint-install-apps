@@ -83,6 +83,8 @@ fi
 sudo update-grub
 ```
 
+`video=efifb:nobgrt` - parameter to prevent the display of the UEFI vendor logo
+
 To find out which driver you are using you can use the following command: `lspci -k | grep -EA3 'VGA|3D|Display'`
 
 Run the script below to determine the screen resolution and update the grub file, if necessary:
