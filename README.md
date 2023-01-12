@@ -83,6 +83,18 @@ fi
 sudo update-grub
 ```
 
+To find out which driver you are using you can use the following command: `lspci -k | grep -EA3 'VGA|3D|Display'`
+
+Run the script below to determine the screen resolution and update the grub file, if necessary:
+
+```bash
+RESOLUTION=$(xdpyinfo | awk '/dimensions/ {print $2}') && 
+sudo sed -i 's/GRUB_GFXMODE=auto/GRUB_GFXMODE='"$RESOLUTION"'/' /etc/default/grub && 
+sudo update-grub
+```
+
+Identify the display manager used in the system: `systemctl status display-manager`
+
 ## Vivaldi Options
 
 Settings:
