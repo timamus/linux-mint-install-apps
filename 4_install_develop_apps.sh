@@ -26,8 +26,8 @@ echo -en "\033[1;33m Installing dotnet... \033[0m \n"
 echo -en "\033[1;33m To install a different version, replace the version number in the script. For example, use 7.0 for .NET 7, 8.0 for .NET 8, etc. \033[0m \n"
 wget 'https://dot.net/v1/dotnet-install.sh'
 chmod +x ./dotnet-install.sh
-./dotnet-install.sh -c 6.0
-./dotnet-install.sh -c 6.0 --runtime aspnetcore
+./dotnet-install.sh -c 8.0
+./dotnet-install.sh -c 8.0 --runtime aspnetcore
 rm dotnet-install.sh
 # Set environment variables and export them
 export DOTNET_ROOT=$HOME/.dotnet
