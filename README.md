@@ -150,7 +150,7 @@ bash -c "echo X-GNOME-Autostart-Delay=5 >> ~/.config/autostart/Yandex.Disk-indic
 
 > Battery Applet with Monitoring and Shutdown (BAMS)
 
-Install the BAMS applet, then run:
+Install the BAMS applet (the best version is 1.5.1), then run:
 
 ```bash
 mkdir -p $HOME/batterymonitor@pdcurtis && 
@@ -167,6 +167,12 @@ sed -i -e '0,/rgba(0,255,0,0.3)/s//rgba(0,0,0,0)/' -e '0,/rgba(0,255,0,0.3)/s//r
 Install dependencies: `sudo apt-get install -y zenity sox libsox-fmt-mp3`
 
 Then, in the applet settings, select the option "Compact - Battery Percentage without extended messages" in the "Display Mode" area.
+
+If the battery data is not displayed, change the path to the battery directory in the advanced configuration to "/sys/class/power_supply/BATT" or to something that starts with BAT
+
+> keyboard@cinnamon.org
+
+It may not be displayed if iBus is installed on the system. Find the application "iBus Preferences", then in General --> disable Show icon on system tray. Then in Advanced --> enable Use system keyboard layout
 
 > ScreenShot+RecordDesktop
 
