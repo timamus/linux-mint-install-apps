@@ -148,7 +148,7 @@ bash -c "echo X-GNOME-Autostart-Delay=5 >> ~/.config/autostart/Yandex.Disk-indic
 
 ### Applets
 
-To prevent updates, go to the update manager and then right-click on the applet and select "Ignore all future updates for this package"
+To prevent updates, go to the update manager and then right-click on the applet and select "Ignore all future updates for this package". To install the applet, simply copy the files to ~/.local/share/cinnamon/applets/
 
 > Battery Applet with Monitoring and Shutdown (BAMS)
 
