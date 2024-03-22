@@ -155,15 +155,27 @@ To prevent updates, go to the update manager and then right-click on the applet 
 Install the BAMS applet (the best version is 1.5.1), then run:
 
 ```bash
-mkdir -p $HOME/batterymonitor@pdcurtis && 
-cp $HOME/.local/share/cinnamon/applets/batterymonitor@pdcurtis/5.4/stylesheet.css $HOME/batterymonitor@pdcurtis && 
-sed -i -e '0,/rgba(0,255,0,0.3)/s//rgba(0,0,0,0)/' -e '0,/rgba(0,255,0,0.3)/s//rgba(0,0,0,0)/' -e 's/rgba(0,255,0,0.5)/rgba(0,0,0,0)/' -e '0,/red/s//rgba(0,0,0,0)/' $HOME/batterymonitor@pdcurtis/stylesheet.css
+mkdir -p $HOME/batterymonitor@pdcurtis && \
+cp $HOME/.local/share/cinnamon/applets/batterymonitor@pdcurtis/5.4/stylesheet.css $HOME/batterymonitor@pdcurtis && \
+sed -i \
+-e 's/rgba(0,255,0,0.3)/rgba(0,0,0,0)/g' \
+-e 's/rgba(0,255,0,0.5)/rgba(0,0,0,0)/g' \
+-e '/.bam-discharging {/,/}/{s/border-color: red;/border-color: rgba(0,0,0,0);/}' \
+-e 's/margin: 2px, 1px, 0px, 1px;/margin: 0px, 1px, 0px, 1px;/g' \
+-e 's/font-size: 95%;/font-size: 100%;/g' \
+$HOME/batterymonitor@pdcurtis/stylesheet.css
 ```
 
 or to fix the BAMS applet settings directly, use the command below, but you will have to do this when the applet is updated
 
 ```bash
-sed -i -e '0,/rgba(0,255,0,0.3)/s//rgba(0,0,0,0)/' -e '0,/rgba(0,255,0,0.3)/s//rgba(0,0,0,0)/' -e 's/rgba(0,255,0,0.5)/rgba(0,0,0,0)/' -e '0,/red/s//rgba(0,0,0,0)/' $HOME/.local/share/cinnamon/applets/batterymonitor@pdcurtis/5.4/stylesheet.css
+sed -i \
+-e 's/rgba(0,255,0,0.3)/rgba(0,0,0,0)/g' \
+-e 's/rgba(0,255,0,0.5)/rgba(0,0,0,0)/g' \
+-e '/.bam-discharging {/,/}/{s/border-color: red;/border-color: rgba(0,0,0,0);/}' \
+-e 's/margin: 2px, 1px, 0px, 1px;/margin: 0px, 1px, 0px, 1px;/g' \
+-e 's/font-size: 95%;/font-size: 100%;/g' \
+$HOME/.local/share/cinnamon/applets/batterymonitor@pdcurtis/5.4/stylesheet.css
 ```
 
 Install dependencies: `sudo apt-get install -y zenity sox libsox-fmt-mp3`
