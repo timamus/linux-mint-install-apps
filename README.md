@@ -148,6 +148,8 @@ bash -c "echo X-GNOME-Autostart-Delay=5 >> ~/.config/autostart/Yandex.Disk-indic
 
 ### Applets
 
+To prevent updates, go to the update manager and then right-click on the applet and select "Ignore all future updates for this package"
+
 > Battery Applet with Monitoring and Shutdown (BAMS)
 
 Install the BAMS applet (the best version is 1.5.1), then run:
