@@ -32,6 +32,10 @@ sudo apt install -y inkscape inkscape-open-symbols
 echo -en "\033[1;33m Installing shotcut... \033[0m \n"
 sudo apt install -y shotcut
 
+# Installing mpv to support two subtitles in smplayer
+echo -en "\033[1;33m Installing mpv... \033[0m \n"
+sudo apt install -y mpv
+
 # Installing smplayer with skins and themes
 echo -en "\033[1;33m Installing smplayer with skins and themes... \033[0m \n"
 sudo add-apt-repository ppa:rvm/smplayer -y
@@ -46,15 +50,17 @@ sleep 5s
 sed -i 's/^\(gui\s*=\s*\).*$/\1MiniGUI/' $HOME/.config/smplayer/smplayer.ini
 sed -i 's/^\(iconset\s*=\s*\).*$/\1PapirusDark/' $HOME/.config/smplayer/smplayer.ini
 sed -i 's/^\(qt_style\s*=\s*\).*$/\1kvantum-dark/' $HOME/.config/smplayer/smplayer.ini
+# Using mpv instead of mplayer
+sed -i 's#^\(mplayer_bin\s*=\s*\).*#$\1/usr/bin/mpv#' $HOME/.config/smplayer/smplayer.ini
+# Max. amplification
+sed -i 's/^\(softvol_max\s*=\s*\).*$/\1150/' $HOME/.config/smplayer/smplayer.ini
+# Volume normalization
+sed -i 's/^\(initial_volnorm\s*=\s*\).*$/\1true/' $HOME/.config/smplayer/smplayer.ini
 # Do not save recent files
 sed -i 's|^\(latest_dir=\).*|\1|' $HOME/.config/smplayer/smplayer.ini
 sed -i 's/^\(save_dirs=\).*$/\1false/' $HOME/.config/smplayer/smplayer.ini
 sed -i 's/^\(recents\\max_items=\).*$/\10/' $HOME/.config/smplayer/smplayer.ini
 sed -i 's/^\(urls\\max_items=\).*$/\10/' $HOME/.config/smplayer/smplayer.ini
-
-# Installing mpv to support two subtitles in smplayer
-echo -en "\033[1;33m Installing mpv... \033[0m \n"
-sudo apt install -y mpv
 
 # Installing vivaldi
 echo -en "\033[1;33m Installing vivaldi... \033[0m \n"
