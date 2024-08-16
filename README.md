@@ -251,7 +251,7 @@ To recover Yandex disk data from an external hard drive, you need to open luckyB
 - In the advanced settings, in the command options tab, must be enabled: "Preserve ownership, times", Preserve permissions, Preserve symlinks, "Preserve device, special files", Delete file in on the destination, Recurse into directories, Skip newer destination files
 
 To back up Yandex disk data to an external hard drive, you need to open luckyBackup --> Task --> Add
-- Name: YandexDiskRecovery
+- Name: YandexDiskBackup
 - Type: Backup Source inside Destination
 - Source: /home/USERNAME/YandexDisk/
 - Destination: /media/USERNAME/Depository/Backup storage/YandexDisk/
