@@ -167,6 +167,10 @@ cd /opt/tor-browser
 echo -en "\033[1;33m Installing steam... \033[0m \n"
 sudo apt install -y steam
 
+# Installing redshift
+echo -en "\033[1;33m Installing redshift... \033[0m \n"
+sudo apt install -y redshift redshift-gtk
+
 # Installing unrar
 echo -en "\033[1;33m Installing unrar... \033[0m \n"
 sudo apt install -y unrar
