@@ -112,11 +112,11 @@ gsettings set org.nemo.desktop computer-icon-visible true
 # Turn on the display of the "Trash" icon on the desktop
 gsettings set org.nemo.desktop trash-icon-visible true
 # Power management settings
-gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-ac 900
-gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-ac-timeout 1800
+gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-ac 1800
+gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-ac-timeout 2700
 gsettings set org.cinnamon.settings-daemon.plugins.power lid-close-ac-action 'suspend'
-gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 1800
-gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-battery-timeout 2700
+gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 900
+gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-battery-timeout 1800
 gsettings set org.cinnamon.settings-daemon.plugins.power lid-close-battery-action 'suspend'
 
 # Check if timeshift is installed in the system
