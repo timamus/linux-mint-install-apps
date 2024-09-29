@@ -24,11 +24,11 @@ read -p "Your choice (1/2): " choice
 case $choice in
     1)
         echo -en "\033[1;33mApplying default power management settings...\033[0m \n"
-        gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-ac 900
-        gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-ac-timeout 1800
+        gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-ac 1800
+        gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-ac-timeout 2700
         gsettings set org.cinnamon.settings-daemon.plugins.power lid-close-ac-action 'suspend'
-        gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 1800
-        gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-battery-timeout 2700
+        gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 900
+        gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-battery-timeout 1800
         gsettings set org.cinnamon.settings-daemon.plugins.power lid-close-battery-action 'suspend'
         sudo sed -i '/IgnoreLid=/{s/true/false/}' /etc/UPower/UPower.conf
         sudo systemctl restart upower
