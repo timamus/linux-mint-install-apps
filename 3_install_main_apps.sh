@@ -36,10 +36,10 @@ sudo apt install -y shotcut
 echo -en "\033[1;33m Installing mpv... \033[0m \n"
 sudo apt install -y mpv
 
-# Installing smplayer with skins and themes
-echo -en "\033[1;33m Installing smplayer with skins and themes... \033[0m \n"
+# Installing smplayer with themes
+echo -en "\033[1;33m Installing smplayer with themes... \033[0m \n"
 sudo add-apt-repository ppa:rvm/smplayer -y
-sudo apt update && sudo apt install -y smplayer smplayer-themes smplayer-skins
+sudo apt update && sudo apt install -y smplayer smplayer-themes
 smplayer -delete-config
 smplayer &
 echo "Waiting for 5 seconds for smplayer to open..."
