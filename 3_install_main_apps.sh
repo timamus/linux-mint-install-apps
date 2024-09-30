@@ -105,19 +105,12 @@ echo -en "\033[1;33m Installing MS Core fonts... \033[0m \n"
 sudo apt install -y ttf-mscorefonts-installer
 
 # Installing ProtonVPN
-echo -en "\033[1;33m Installing ProtonVPN... \033[0m \n"
-BASE_URL='https://repo.protonvpn.com/debian/dists/stable/main/binary-all/'
-BINARY_FILE=$(wget -qO- $BASE_URL | grep -oP 'href="\Kprotonvpn-stable-release.+?deb' | head -n 1)
-# Check if the binary file is not empty
-if [[ -z "$BINARY_FILE" ]]; then
-    echo "Error: Unable to find ProtonVPN .deb file."
-    exit 1
-fi
-FULL_URL="${BASE_URL}${BINARY_FILE}"
-wget -O "$BINARY_FILE" "$FULL_URL"
-sudo dpkg -i "$BINARY_FILE"
-rm -f "$BINARY_FILE"
-sudo apt update && sudo apt install -y protonvpn
+# echo -en "\033[1;33m Installing ProtonVPN... \033[0m \n"
+# wget -q -O - https://repo.protonvpn.com/debian/public_key.asc | sudo apt-key add -
+# sudo add-apt-repository 'deb https://repo.protonvpn.com/debian stable main'
+# sudo apt update && sudo apt install -y protonvpn
+echo -en "\033[1;33m Installing ProtonVPN from flatpak... \033[0m \n"
+flatpak install flathub com.protonvpn.www -y
 
 # Installing luckybackup
 echo -en "\033[1;33m Installing luckybackup... \033[0m \n"
