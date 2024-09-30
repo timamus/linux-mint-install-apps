@@ -30,6 +30,7 @@ case $choice in
         gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 900
         gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-battery-timeout 1800
         gsettings set org.cinnamon.settings-daemon.plugins.power lid-close-battery-action 'suspend'
+        gsettings set org.cinnamon.desktop.session idle-delay 300
         sudo sed -i '/IgnoreLid=/{s/true/false/}' /etc/UPower/UPower.conf
         sudo systemctl restart upower
         sudo sed -i 's/HandleLidSwitch=/#HandleLidSwitch=/g' /etc/systemd/logind.conf
@@ -45,6 +46,14 @@ case $choice in
         gsettings set org.cinnamon.settings-daemon.plugins.power sleep-display-battery 0
         gsettings set org.cinnamon.settings-daemon.plugins.power sleep-inactive-battery-timeout 0
         gsettings set org.cinnamon.settings-daemon.plugins.power lid-close-battery-action 'nothing'
+
+        # Prompt for screensaver setting
+        echo -en "\033[1;34mDo you want to disable the screensaver? (y/n):\033[0m "
+        read -p "" screensaver_choice
+        if [[ "$screensaver_choice" == "y" || "$screensaver_choice" == "Y" ]]; then
+            gsettings set org.cinnamon.desktop.session idle-delay 0
+        fi
+        
         sudo sed -i '/IgnoreLid=/{s/false/true/}' /etc/UPower/UPower.conf
         sudo systemctl restart upower
         sudo sed -i 's/#HandleLidSwitch=/HandleLidSwitch=/g' /etc/systemd/logind.conf
