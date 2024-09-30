@@ -37,12 +37,42 @@ if [[ -z "$(swapon -s)" ]]; then # Check if there is any swap (partition or file
     sudo bash -c "echo -e '# Added by a script\nGRUB_CMDLINE_LINUX_DEFAULT=\"\$GRUB_CMDLINE_LINUX_DEFAULT resume=UUID=$SWAP_DEVICE resume_offset=$SWAP_FILE_OFFSET\"' > /etc/default/grub.d/resume.cfg"
     sudo update-grub
     sudo sed -i 's@#HibernateDelaySec=180min@HibernateDelaySec=60min@g' /etc/systemd/sleep.conf 
-    # Adding Hibernate to the shutdown dialog
-    sudo tee /etc/polkit-1/localauthority/50-local.d/com.ubuntu.enable-hibernate.pkla <<'EOB'
+    # Adds hibernation option in power-off menu
+    sudo apt install -y -qq polkitd-pkla
+
+    sudo mkdir -p /etc/polkit-1/localauthority/50-local.d
+    sudo tee /etc/polkit-1/localauthority/50-local.d/com.ubuntu.enable-hibernate.pkla << 'EOB' >/dev/null
+[Re-enable hibernate by default in upower]
+Identity=unix-user:*
+Action=org.freedesktop.upower.hibernate
+ResultActive=yes
+
+[Re-enable hibernate by default in logind]
+Identity=unix-user:*
+Action=org.freedesktop.login1.hibernate;org.freedesktop.login1.handle-hibernate-key;org.freedesktop.login1;org.freedesktop.login1.hibernate-multiple-sessions;org.freedesktop.login1.hibernate-ignore-inhibit
+ResultActive=yes
+EOB
+
+    sudo mkdir -p /etc/polkit-1/localauthority/90-mandatory.d
+    sudo tee /etc/polkit-1/localauthority/90-mandatory.d/enable-hibernate.pkla << 'EOB' >/dev/null
 [Enable hibernate]
 Identity=unix-user:*
 Action=org.freedesktop.login1.hibernate;org.freedesktop.login1.handle-hibernate-key;org.freedesktop.login1;org.freedesktop.login1.hibernate-multiple-sessions
 ResultActive=yes
+EOB
+
+    sudo mkdir -p /etc/polkit-1/rules.d
+    sudo tee /etc/polkit-1/rules.d/10-enable-hibernate.rules << 'EOB' >/dev/null
+polkit.addRule(function(action, subject) {
+    if (action.id == \"org.freedesktop.login1.hibernate\" ||
+        action.id == \"org.freedesktop.login1.hibernate-multiple-sessions\" ||
+        action.id == \"org.freedesktop.upower.hibernate\" ||
+        action.id == \"org.freedesktop.login1.handle-hibernate-key\" ||
+        action.id == \"org.freedesktop.login1.hibernate-ignore-inhibit\")
+    {
+        return polkit.Result.YES;
+    }
+});
 EOB
   fi
 else
