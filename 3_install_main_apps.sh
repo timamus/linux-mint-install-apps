@@ -63,10 +63,12 @@ sed -i 's/^\(recents\\max_items=\).*$/\10/' $HOME/.config/smplayer/smplayer.ini
 sed -i 's/^\(urls\\max_items=\).*$/\10/' $HOME/.config/smplayer/smplayer.ini
 
 # Installing vivaldi
-echo -en "\033[1;33m Installing vivaldi... \033[0m \n"
-wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | sudo apt-key add -
-sudo add-apt-repository 'deb https://repo.vivaldi.com/archive/deb/ stable main' -y
-sudo apt update && sudo apt install -y vivaldi-stable
+# echo -en "\033[1;33m Installing vivaldi... \033[0m \n"
+# wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | sudo apt-key add -
+# sudo add-apt-repository 'deb https://repo.vivaldi.com/archive/deb/ stable main' -y
+# sudo apt update && sudo apt install -y vivaldi-stable
+echo -en "\033[1;33m Installing vivaldi from flatpak... \033[0m \n"
+flatpak install flathub com.vivaldi.Vivaldi -y
 
 # Installing telegram
 echo -en "\033[1;33m Installing telegram from flatpak... \033[0m \n"
@@ -144,21 +146,27 @@ sudo apt install -y luckybackup
 # rm $PACKAGE_NAME
 
 # Installing tor-browser
-echo -en "\033[1;33m Installing tor-browser... \033[0m \n"
-URL='https://tor.eff.org/download/' # Official mirror https://www.torproject.org/download/, may be blocked
-LINK=$(wget -qO- $URL | grep -oP -m 1 'href="\K/dist.+?tar.xz' || true) # https://stackoverflow.com/questions/75081074/the-script-sometimes-doesnt-run-after-wget
-URL='https://tor.eff.org'${LINK}
-curl --location $URL | tar xJ --extract --verbose --preserve-permissions
-sudo rm -rf /opt/tor-browser
-sudo mv tor-browser /opt
-sudo chown -R $USER /opt/tor-browser
-cd /opt/tor-browser
-./start-tor-browser.desktop --register-app
+# echo -en "\033[1;33m Installing tor-browser... \033[0m \n"
+# URL='https://tor.eff.org/download/' # Official mirror https://www.torproject.org/download/, may be blocked
+# LINK=$(wget -qO- $URL | grep -oP -m 1 'href="\K/dist.+?tar.xz' || true) # https://stackoverflow.com/questions/75081074/the-script-sometimes-doesnt-run-after-wget
+# URL='https://tor.eff.org'${LINK}
+# curl --location $URL | tar xJ --extract --verbose --preserve-permissions
+# sudo rm -rf /opt/tor-browser
+# sudo mv tor-browser /opt
+# sudo chown -R $USER /opt/tor-browser
+# cd /opt/tor-browser
+# ./start-tor-browser.desktop --register-app
+
+# Installing tor-browser-launcher
+echo -en "\033[1;33m Installing tor-browser-launcher from flatpak... \033[0m \n"
+flatpak install flathub org.torproject.torbrowser-launcher -y
 
 # Installing steam
 # You can enable Proton in the Steam Client in Steam > Settings > Steam Play
-echo -en "\033[1;33m Installing steam... \033[0m \n"
-sudo apt install -y steam
+# echo -en "\033[1;33m Installing steam... \033[0m \n"
+# sudo apt install -y steam
+echo -en "\033[1;33m Installing steam from flatpak... \033[0m \n"
+flatpak install flathub com.valvesoftware.Steam -y
 
 # Installing redshift
 echo -en "\033[1;33m Installing redshift... \033[0m \n"
