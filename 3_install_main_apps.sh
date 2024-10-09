@@ -176,6 +176,10 @@ sudo apt install -y redshift redshift-gtk
 echo -en "\033[1;33m Installing unrar... \033[0m \n"
 sudo apt install -y unrar
 
+# Installing flatseal
+echo -en "\033[1;33m Installing flatseal from flatpak... \033[0m \n"
+flatpak install flathub com.github.tchx84.Flatseal -y
+
 # Installing and removing language packs
 echo -en "\033[1;33m Install the language packs by clicking on the 'Install / Remove Languages...' button \033[0m \n"
 mintlocale
