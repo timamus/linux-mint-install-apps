@@ -240,24 +240,6 @@ To install LaTex, run the command: `sudo apt install -y texlive-full latexmk`
 
 - https://www.davidrevoy.com/article854/krita-brushes-2021-bundle
 
-## Synchronization of two folders using luckyBackup on the example of Yandex disk
-
-To recover Yandex disk data from an external hard drive, you need to open luckyBackup --> Task --> Add
-- Name: YandexDiskRecovery
-- Type: Backup Source inside Destination
-- Source: /media/USERNAME/Depository/Backup storage/YandexDisk/
-- Destination: /home/USERNAME/YandexDisk/
-- Check the box "do NOT create extra directory"
-- In the advanced settings, in the command options tab, must be enabled: "Preserve ownership, times", Preserve permissions, Preserve symlinks, "Preserve device, special files", Delete file in on the destination, Recurse into directories, Skip newer destination files
-
-To back up Yandex disk data to an external hard drive, you need to open luckyBackup --> Task --> Add
-- Name: YandexDiskBackup
-- Type: Backup Source inside Destination
-- Source: /home/USERNAME/YandexDisk/
-- Destination: /media/USERNAME/Depository/Backup storage/YandexDisk/
-- Check the box "do NOT create extra directory"
-- In the advanced settings, in the command options tab, must be enabled: Destination is FAT/NTFS (Disable the following two options), "Preserve ownership, times", Preserve permissions, Preserve symlinks, "Preserve device, special files", Delete file in on the destination, Recurse into directories, Skip newer destination files
-
 ## Using Redshift without an Internet connection
 
 To determine the location, Redshift uses an external IP. When using a VPN, it will incorrectly set the color scheme for the display. Use the script below to manually set your location for Redshift.
