@@ -115,8 +115,12 @@ echo -en "\033[1;33m Installing ProtonVPN from flatpak... \033[0m \n"
 flatpak install flathub com.protonvpn.www -y
 
 # Installing luckybackup
-echo -en "\033[1;33m Installing luckybackup... \033[0m \n"
-sudo apt install -y luckybackup
+# echo -en "\033[1;33m Installing luckybackup... \033[0m \n"
+# sudo apt install -y luckybackup
+
+# Installing grsync
+echo -en "\033[1;33m Installing grsync... \033[0m \n"
+sudo apt install -y grsync
 
 # Installing yandex-disk
 # echo -en "\033[1;33m Installing yandex-disk... \033[0m \n"
