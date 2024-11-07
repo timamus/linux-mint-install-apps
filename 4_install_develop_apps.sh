@@ -68,19 +68,6 @@ sudo bash -c "echo 1.2.3.4 account.jetbrains.com >> /etc/hosts"
 # Launching jetbrains-toolbox to create a desktop launcher
 jetbrains-toolbox
 
-# Installing visual studio code
-echo -en "\033[1;33m Installing visual studio code... \033[0m \n"
-wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
-sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-rm -f packages.microsoft.gpg
-sudo apt install -y apt-transport-https
-sudo apt update
-sudo apt install -y code # or code-insiders
-
-# Installing some extensions for visual studio code
-code --install-extension James-Yu.latex-workshop
-
 # Installing dbeaver with plugins
 echo -en "\033[1;33m Installing dbeaver with plugins... \033[0m \n"
 sudo add-apt-repository ppa:serge-rider/dbeaver-ce -y
