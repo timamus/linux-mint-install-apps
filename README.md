@@ -134,16 +134,6 @@ Addons:
 - https://addons.mozilla.org/ru/firefox/addon/new-tab-suspender/
 - https://addons.mozilla.org/ru/firefox/addon/musicpro/
 
-## Yandex.Disk
-
-To configure Yandex.Disk, use the command: `yandex-disk setup`. If you plan to backup the Yandex.Disk folder via rsync, it is better not to use a dot in the folder name.
-
-Also, there is a problem of displaying double tray icons in the system that affects the yandex-disk-indicator. To solve the problem, it is recommended to go to system settings --> startup applications --> find the indicator --> edit --> startup delay --> 5. Or execute the command: 
-```
-sed -i '/X-GNOME-Autostart-Delay/d' ~/.config/autostart/Yandex.Disk-indicator.desktop && 
-bash -c "echo X-GNOME-Autostart-Delay=5 >> ~/.config/autostart/Yandex.Disk-indicator.desktop"
-```
-
 ## Cinnamon Desktop Environment Settings
 
 ### Applets
@@ -220,6 +210,8 @@ You can change your favorite applications in System Settings --> Preferred appli
 
 - Music : Celluloid --> SMPlayer
 - Video : Celluloid --> SMPlayer
+
+To match SMPlayer's theme with the system for authenticity, you can set the style to gtk2 in its settings.
 
 ## Other resources
 
