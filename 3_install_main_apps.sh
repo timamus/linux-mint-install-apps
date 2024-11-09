@@ -13,24 +13,35 @@ sudo apt install -y virtualbox virtualbox-ext-pack
 sudo gpasswd -a $USER vboxusers
 
 # Installing remmina with rdp and vnc plugins
-echo -en "\033[1;33m Installing remmina with rdp and vnc plugins... \033[0m \n"
-sudo apt install -y remmina remmina-plugin-rdp remmina-plugin-secret
+# echo -en "\033[1;33m Installing remmina with rdp and vnc plugins... \033[0m \n"
+# sudo apt install -y remmina remmina-plugin-rdp remmina-plugin-secret
+echo -en "\033[1;33m Installing remmina from flatpak... \033[0m \n"
+flatpak install flathub org.remmina.Remmina -y
 
 # Installing gimp with help
-echo -en "\033[1;33m Installing gimp with help... \033[0m \n"
-sudo apt install -y gimp gimp-help-en
+# echo -en "\033[1;33m Installing gimp with help... \033[0m \n"
+# sudo apt install -y gimp gimp-help-en
+echo -en "\033[1;33m Installing gimp from flatpak... \033[0m \n"
+flatpak install flathub org.gimp.GIMP -y
 
 # Installing krita
-echo -en "\033[1;33m Installing krita... \033[0m \n"
-sudo apt install -y krita
+# echo -en "\033[1;33m Installing krita... \033[0m \n"
+# sudo apt install -y krita
+echo -en "\033[1;33m Installing krita from flatpak... \033[0m \n"
+flatpak install flathub org.kde.krita -y
 
 # Installing inkscape
-echo -en "\033[1;33m Installing inkscape... \033[0m \n"
-sudo apt install -y inkscape inkscape-open-symbols
+# echo -en "\033[1;33m Installing inkscape... \033[0m \n"
+# sudo apt install -y inkscape inkscape-open-symbols
+echo -en "\033[1;33m Installing inkscape from flatpak... \033[0m \n"
+flatpak install flathub org.inkscape.Inkscape -y
+sudo apt install -y inkscape-open-symbols
 
 # Installing shotcut
-echo -en "\033[1;33m Installing shotcut... \033[0m \n"
-sudo apt install -y shotcut
+# echo -en "\033[1;33m Installing shotcut... \033[0m \n"
+# sudo apt install -y shotcut
+echo -en "\033[1;33m Installing shotcut from flatpak... \033[0m \n"
+flatpak install flathub org.shotcut.Shotcut -y
 
 # Installing mpv to support two subtitles in smplayer
 echo -en "\033[1;33m Installing mpv... \033[0m \n"
@@ -90,8 +101,10 @@ echo -en "\033[1;33m Installing goldendict... \033[0m \n"
 sudo apt install -y goldendict
 
 # Installing calibre
-echo -en "\033[1;33m Installing calibre... \033[0m \n"
-sudo apt install -y calibre
+# echo -en "\033[1;33m Installing calibre... \033[0m \n"
+# sudo apt install -y calibre
+echo -en "\033[1;33m Installing calibre from flatpak... \033[0m \n"
+flatpak install flathub com.calibre_ebook.calibre -y
 
 # Installing bleachbit
 echo -en "\033[1;33m Installing bleachbit... \033[0m \n"
