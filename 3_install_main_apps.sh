@@ -135,33 +135,6 @@ flatpak install flathub com.protonvpn.www -y
 echo -en "\033[1;33m Installing grsync... \033[0m \n"
 sudo apt install -y grsync
 
-# Installing yandex-disk
-# echo -en "\033[1;33m Installing yandex-disk... \033[0m \n"
-# echo "deb http://repo.yandex.ru/yandex-disk/deb/ stable main" | sudo tee -a /etc/apt/sources.list.d/yandex-disk.list > /dev/null
-# wget http://repo.yandex.ru/yandex-disk/YANDEX-DISK-KEY.GPG -O- | sudo apt-key add -
-# sudo apt update && sudo apt install -y yandex-disk
-
-# Installing yandex-disk-indicator
-# echo -en "\033[1;33m Installing yandex-disk-indicator... \033[0m \n"
-# sudo add-apt-repository ppa:slytomcat/ppa -y
-# sudo apt update && sudo apt install -y yd-tools
-# Installing dependencies
-# sudo apt-get install -y gir1.2-appindicator3-0.1 xclip
-# Defining the URL of the package directory
-# PACKAGE_URL="https://launchpad.net/~slytomcat/+archive/ubuntu/ppa/+files/"
-# Defining the filename of the package
-# PACKAGE_NAME="yd-tools_1.11.0_all.deb"
-# Downloading the package
-# wget "${PACKAGE_URL}${PACKAGE_NAME}" -O $PACKAGE_NAME
-# Installing the package
-# sudo dpkg -i $PACKAGE_NAME
-# Installing any missing dependencies
-# sudo apt-get install -f
-# Preventing the package from being automatically upgraded
-# sudo apt-mark hold yd-tools
-# Removing the package file to free up space (optional)
-# rm $PACKAGE_NAME
-
 # Installing tor-browser
 # echo -en "\033[1;33m Installing tor-browser... \033[0m \n"
 # URL='https://tor.eff.org/download/' # Official mirror https://www.torproject.org/download/, may be blocked
