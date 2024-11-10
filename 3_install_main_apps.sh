@@ -84,17 +84,17 @@ flatpak install flathub com.vivaldi.Vivaldi -y
 # Installing telegram
 echo -en "\033[1;33m Installing telegram from flatpak... \033[0m \n"
 flatpak install flathub org.telegram.desktop -y
-sudo flatpak override org.telegram.desktop --filesystem=host
+flatpak override org.telegram.desktop --user --filesystem=home
 
 # Installing bitwarden
 echo -en "\033[1;33m Installing bitwarden from flatpak... \033[0m \n"
 flatpak install flathub com.bitwarden.desktop -y
-sudo flatpak override com.bitwarden.desktop --filesystem=host
+flatpak override com.bitwarden.desktop --user --filesystem=home
 # Applying a dark theme to bitwarden
 # To select the gtk theme to install: flatpak install mint-y-dark
 flatpak install flathub org.gtk.Gtk3theme.Mint-Y-Dark -y
-sudo flatpak override com.bitwarden.desktop --env=GTK_THEME=Mint-Y-Dark
-sudo flatpak override com.bitwarden.desktop --env=GTK_STYLE_OVERRIDE=Mint-Y-Dark
+flatpak override com.bitwarden.desktop --user --env=GTK_THEME=Mint-Y-Dark
+flatpak override com.bitwarden.desktop --user --env=GTK_STYLE_OVERRIDE=Mint-Y-Dark
 
 # Installing goldendict
 echo -en "\033[1;33m Installing goldendict... \033[0m \n"
@@ -113,7 +113,7 @@ sudo apt install -y bleachbit
 # Installing obsidian
 echo -en "\033[1;33m Installing obsidian from flatpak... \033[0m \n"
 flatpak install flathub md.obsidian.Obsidian -y
-sudo flatpak override md.obsidian.Obsidian --filesystem=host
+flatpak override md.obsidian.Obsidian --user --filesystem=home
 
 # Installing MS Core fonts
 echo -en "\033[1;33m Installing MS Core fonts... \033[0m \n"
