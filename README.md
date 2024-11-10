@@ -4,7 +4,7 @@ Installing Apps in Linux Mint
 
 ## Quick start
 
-Before updating, upgrade the Linux kernel via Update Manager (mintUpdate) and reboot.
+Before running `./1_system_upgrade.sh`, upgrade the Linux kernel via Update Manager (mintUpdate) and reboot.
 
 - `sudo apt update && sudo apt install -y git`
 - `git clone https://github.com/timamus/linux-mint-install-apps.git`
