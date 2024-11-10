@@ -80,8 +80,8 @@ flatpak install flathub com.getpostman.Postman -y
 # Applying a dark theme to postman
 # To select the gtk theme to install: flatpak install mint-y-dark
 flatpak install flathub org.gtk.Gtk3theme.Mint-Y-Dark -y
-sudo flatpak override com.getpostman.Postman --env=GTK_THEME=Mint-Y-Dark
-sudo flatpak override com.getpostman.Postman --env=GTK_STYLE_OVERRIDE=Mint-Y-Dark
+flatpak override com.getpostman.Postman --user --env=GTK_THEME=Mint-Y-Dark
+flatpak override com.getpostman.Postman --user --env=GTK_STYLE_OVERRIDE=Mint-Y-Dark
 
 echo -en "\033[0;35m Installation successfull \033[0m \n"
 echo 'A system reboot is recommended. Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot;
