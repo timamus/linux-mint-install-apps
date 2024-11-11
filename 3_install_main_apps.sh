@@ -9,8 +9,23 @@ sudo apt update && sudo apt -y install veracrypt
 
 # Installing virtualbox
 echo -en "\033[1;33m Installing virtualbox... \033[0m \n"
-sudo apt install -y virtualbox virtualbox-ext-pack
+# sudo apt install -y virtualbox virtualbox-ext-pack
+# sudo gpasswd -a $USER vboxusers
+# Installing the latest VirtualBox from Oracle repo for better support of new Linux kernels
+wget -O- https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --dearmor --yes --output /usr/share/keyrings/oracle-virtualbox-2016.gpg
+UBUNTU_CODENAME=$(grep '^UBUNTU_CODENAME=' /etc/os-release | cut -d'=' -f2)
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.gpg] http://download.virtualbox.org/virtualbox/debian $UBUNTU_CODENAME contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+sudo apt update
+# Retrieve the latest available version of VirtualBox from the Oracle repository
+# or use the command sudo apt install virtualbox-7.1 -y as an example
+VB_VER=$(apt-cache showpkg virtualbox | sed -n '/Reverse Provides:/,$p' | sed -n '2p' | awk '{print $1}')
+sudo apt install "$VB_VER" -y
 sudo gpasswd -a $USER vboxusers
+echo -en "\033[1;33m Installing virtualbox-ext-pack... \033[0m \n"
+VB_VER=$(vboxmanage -v | cut -dr -f1)
+wget https://download.virtualbox.org/virtualbox/$VB_VER/Oracle_VirtualBox_Extension_Pack-$VB_VER.vbox-extpack
+sudo vboxmanage extpack install Oracle_VirtualBox_Extension_Pack-$VB_VER.vbox-extpack
+rm Oracle_VirtualBox_Extension_Pack-$VB_VER.vbox-extpack
 
 # Installing remmina with rdp and vnc plugins
 # echo -en "\033[1;33m Installing remmina with rdp and vnc plugins... \033[0m \n"
