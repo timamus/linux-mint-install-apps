@@ -50,7 +50,6 @@ flatpak install flathub org.kde.krita -y
 # sudo apt install -y inkscape inkscape-open-symbols
 echo -en "\033[1;33m Installing inkscape from flatpak... \033[0m \n"
 flatpak install flathub org.inkscape.Inkscape -y
-sudo apt install -y inkscape-open-symbols
 
 # Installing shotcut
 # echo -en "\033[1;33m Installing shotcut... \033[0m \n"
