@@ -194,9 +194,6 @@ sudo apt install -y apt-transport-https
 sudo apt update
 sudo apt install -y code # or code-insiders
 
-# Installing some extensions for visual studio code
-code --install-extension James-Yu.latex-workshop
-
 # Installing and removing language packs
 echo -en "\033[1;33m Install the language packs by clicking on the 'Install / Remove Languages...' button \033[0m \n"
 mintlocale
