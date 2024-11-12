@@ -79,38 +79,6 @@ Linux Mint also offers to encrypt the user's home folder (**not recommended**). 
 
 In the location tab, for the "Select Snapshot Location" field, select: dm-0. In the schedule tab, select the snapshot levels - month, and the number - 5. Other settings, leave by default.
 
-## Splash screen
-
-To fix low splash screen resolution after installing proprietary drivers:
-
-```bash
-KERNEL_DRIVER=$(lspci -nnk | egrep -i --color 'vga|3d|2d' -A3 | grep 'in use' | head -1 | sed -r 's/^[^:]*: //') && 
-if [[ "$KERNEL_DRIVER" = "nvidia" ]] ; then 
-   sudo bash -c "echo -e '# Added by a script\nGRUB_CMDLINE_LINUX_DEFAULT=\"\$GRUB_CMDLINE_LINUX_DEFAULT video=efifb:nobgrt nvidia-drm.modeset=1\"' > /etc/default/grub.d/splash.cfg" 
-fi 
-if [[ "$KERNEL_DRIVER" = "i915" ]] ; then 
-   sudo bash -c "echo -e '# Added by a script\nGRUB_CMDLINE_LINUX_DEFAULT=\"\$GRUB_CMDLINE_LINUX_DEFAULT video=efifb:nobgrt i915.modeset=1\"' > /etc/default/grub.d/splash.cfg" 
-fi 
-if [[ "$KERNEL_DRIVER" = "radeon" ]] ; then 
-   sudo bash -c "echo -e '# Added by a script\nGRUB_CMDLINE_LINUX_DEFAULT=\"\$GRUB_CMDLINE_LINUX_DEFAULT video=efifb:nobgrt radeon.modeset=1\"' > /etc/default/grub.d/splash.cfg" 
-fi 
-sudo update-grub
-```
-
-`video=efifb:nobgrt` - parameter to prevent the display of the UEFI vendor logo
-
-To find out which driver you are using you can use the following command: `lspci -k | grep -EA3 'VGA|3D|Display'`
-
-Run the script below to determine the screen resolution and update the grub file, if necessary:
-
-```bash
-RESOLUTION=$(xdpyinfo | awk '/dimensions/ {print $2}') && 
-sudo sed -i 's/GRUB_GFXMODE=auto/GRUB_GFXMODE='"$RESOLUTION"'/' /etc/default/grub && 
-sudo update-grub
-```
-
-Identify the display manager used in the system: `systemctl status display-manager`
-
 ## Vivaldi Options
 
 Settings:
@@ -219,6 +187,17 @@ To match SMPlayer's theme with the system for authenticity, you can set the styl
 
 - `git clone https://gitgud.io/hovereagle/linux-mint-install-nonfree-components.git`
 - Go to https://3.jetbra.in/ or to https://jetbra.in/s click on any available hostname and follow the instructions
+
+## VS Code Extensions
+
+1. LaTeX Workshop
+
+    - [James-Yu.latex-workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
+    - Command: `code --install-extension James-Yu.latex-workshop`
+
+2. Git Graph
+
+    - [vscode-git-graph](https://github.com/hansu/vscode-git-graph)
 
 ## Installing LaTex and using it in VS Code
 
