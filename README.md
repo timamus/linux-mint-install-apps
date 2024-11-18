@@ -220,8 +220,8 @@ To determine the location, Redshift uses an external IP. When using a VPN, it wi
 ```
 JSON=$(curl -s https://json.geoiplookup.io/$(curl -s https://ipinfo.io/ip)) # or curl -s https://ipinfo.io/$(curl -s https://ipinfo.io/ip) 
 echo "$JSON" 
-LATITUDE=$(echo "$JSON" | sed -En 's/.*"latitude": ([^,]*).*/\1/p') 
-LONGITUDE=$(echo "$JSON" | sed -En 's/.*"longitude": ([^,]*).*/\1/p') 
+LATITUDE=$(echo "$JSON" | sed -En 's/.*"latitude": *([0-9.-]+).*/\1/p') 
+LONGITUDE=$(echo "$JSON" | sed -En 's/.*"longitude": *([0-9.-]+).*/\1/p') 
 cat << EOF > ~/.config/redshift.conf 
 [redshift]
 location-provider=manual
