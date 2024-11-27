@@ -77,7 +77,7 @@ Linux Mint also offers to encrypt the user's home folder (**not recommended**). 
 
 ## Setting up the Timeshift
 
-In the location tab, for the "Select Snapshot Location" field, select: dm-0. In the schedule tab, select the snapshot levels - month, and the number - 5. Other settings, leave by default.
+In the location tab, for the "Select Snapshot Location" field, select: dm-0. In the schedule tab, select the snapshot levels - month, and the number - 3. Other settings, leave by default.
 
 ## Vivaldi Options
 
