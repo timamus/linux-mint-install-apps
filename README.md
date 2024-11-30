@@ -162,7 +162,6 @@ Install dependencies: `sudo apt install -y ffmpeg xdotool x11-utils`
 
 ### Desktop wallpapers
 
-- https://wallpaperaccess.com/manjaro
 - https://www.reddit.com/r/wallpaper/
 - https://www.reddit.com/r/wallpaper/comments/sox44n/chill_vibes_3440_1440/
 - https://www.reddit.com/r/wallpaper/comments/sp0j3j/mountain_view_5120x2880/
@@ -213,7 +212,7 @@ To install LaTex, run the command: `sudo apt install -y texlive-full latexmk`
 
 - https://www.davidrevoy.com/article854/krita-brushes-2021-bundle
 
-## Redshift
+## Redshift\*
 
 ### Installation
 
@@ -242,6 +241,8 @@ lon=$LONGITUDE
 EOF
 ```
 
+\* Native "Night Light" for Cinnamon 6.4 and newer now exists, and it seems that Redshift is no longer needed.
+
 ## BleachBit settings
 
 - APT
@@ -267,6 +268,18 @@ EOF
     - Custom
     - Recent document list
     - Rotated logs
+
+## Pavucontrol\*
+
+If you're facing issues with your microphone or your sound output, please install "pavucontrol".
+
+```bash
+sudo apt install -y pavucontrol
+```
+
+This will add "PulseAudio Volume Control" to your menu. This application has more configuration options than the default volume control.
+
+\* There is no need to install if a newer PipeWire is used instead of PulseAudio.
 
 ## Install telegram (not from flatpak)
 
