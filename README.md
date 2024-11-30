@@ -213,7 +213,17 @@ To install LaTex, run the command: `sudo apt install -y texlive-full latexmk`
 
 - https://www.davidrevoy.com/article854/krita-brushes-2021-bundle
 
-## Using Redshift without an Internet connection
+## Redshift
+
+### Installation
+
+Install Redshift and its GTK interface with:
+
+```bash
+sudo apt install -y redshift redshift-gtk
+```
+
+### Using Redshift without an Internet connection
 
 To determine the location, Redshift uses an external IP. When using a VPN, it will incorrectly set the color scheme for the display. Use the script below to manually set your location for Redshift.
 
