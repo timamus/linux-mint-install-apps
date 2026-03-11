@@ -111,8 +111,10 @@ flatpak override com.bitwarden.desktop --user --env=GTK_THEME=Mint-Y-Dark
 flatpak override com.bitwarden.desktop --user --env=GTK_STYLE_OVERRIDE=Mint-Y-Dark
 
 # Installing goldendict
-echo -en "\033[1;33m Installing goldendict... \033[0m \n"
-sudo apt install -y goldendict
+# echo -en "\033[1;33m Installing goldendict... \033[0m \n"
+# sudo apt install -y goldendict
+echo -en "\033[1;33m Installing goldendict-ng from flatpak... \033[0m \n"
+flatpak install flathub io.github.xiaoyifang.goldendict_ng -y
 
 # Installing calibre
 # echo -en "\033[1;33m Installing calibre... \033[0m \n"
