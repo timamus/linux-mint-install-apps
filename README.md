@@ -281,6 +281,21 @@ This will add "PulseAudio Volume Control" to your menu. This application has mor
 
 \* There is no need to install if a newer PipeWire is used instead of PulseAudio.
 
+## Keeping Flatpak Updated on Linux Mint
+
+Linux Mint includes an outdated Flatpak from the official repositories that no longer receives security updates.
+
+To get the latest stable version with security fixes, add the official Flatpak PPA:
+
+```bash
+sudo add-apt-repository ppa:flatpak/stable -y && sudo apt update
+```
+
+## Adding Russian Spell Checker in LibreOffice
+
+To enable the Russian spell checker, go to **Tools → Options → Language Settings → Writing Aids**.  
+Then click **User-defined dictionaries → New**, select **Russian** as the language (or enter a name for the new dictionary and set the language to Russian), and confirm.
+
 ## Install telegram (not from flatpak)
 
 ```
