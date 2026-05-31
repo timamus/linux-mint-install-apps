@@ -232,6 +232,9 @@ curl https://github.com/raphaelquintao/QRedshiftCinnamon/raw/master/install.sh -
 **Recommended settings:**  
 I recommend using **6500K** during the day (neutral daylight) and **4000K** at night (warm and eye-friendly).
 
+### Additional Tips
+- To disable automatic updates of the applet, go to **Configure → Help → Update** and turn off the auto-update option.
+
 ## BleachBit settings
 
 - APT
