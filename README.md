@@ -216,32 +216,23 @@ To install LaTex, run the command: `sudo apt install -y texlive-full latexmk`
 
 ### Installation
 
-Install Redshift and its GTK interface with:
+**Important Note:**  
+The classic Redshift installation is no longer relevant. Starting with Cinnamon 6.4 and newer, a native "Night Light" feature is available and works very well for most users, so Redshift is usually not needed anymore.
+
+If you still want more advanced control (especially with VPN, multiple monitors, or custom settings), it is better to install **QRedshiftCinnamon** — the modern Cinnamon applet version.  
+**Important:** This applet works **only on X11 sessions**. It is completely disabled and does not work on Wayland (Cinnamon’s Wayland compositor currently does not support gamma ramps).
+
+Install it directly from its new GitHub repository instead of using the old Cinnamon applet from Spices.
+
+### Installation of QRedshiftCinnamon (from GitHub)
 
 ```bash
-sudo apt install -y redshift redshift-gtk
+# Install the latest version directly from GitHub
+curl https://github.com/raphaelquintao/QRedshiftCinnamon/raw/master/install.sh -sSfL | bash
 ```
 
-### Using Redshift without an Internet connection
-
-To determine the location, Redshift uses an external IP. When using a VPN, it will incorrectly set the color scheme for the display. Use the script below to manually set your location for Redshift.
-
-```
-JSON=$(curl -s https://json.geoiplookup.io/$(curl -s https://ipinfo.io/ip)) # or curl -s https://ipinfo.io/$(curl -s https://ipinfo.io/ip) 
-echo "$JSON" 
-LATITUDE=$(echo "$JSON" | sed -En 's/.*"latitude": *([0-9.-]+).*/\1/p') 
-LONGITUDE=$(echo "$JSON" | sed -En 's/.*"longitude": *([0-9.-]+).*/\1/p') 
-cat << EOF > ~/.config/redshift.conf 
-[redshift]
-location-provider=manual
-
-[manual]
-lat=$LATITUDE
-lon=$LONGITUDE
-EOF
-```
-
-\* Native "Night Light" for Cinnamon 6.4 and newer now exists, and it seems that Redshift is no longer needed.
+**Recommended settings:**  
+I recommend using **6500K** during the day (neutral daylight) and **4000K** at night (warm and eye-friendly).
 
 ## BleachBit settings
 
