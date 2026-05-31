@@ -75,6 +75,18 @@ Linux Mint also offers to encrypt the user's home folder (**not recommended**). 
 4) Turn on the toggle option "Remove obsolete kernels and dependencies"
 5) Provide your password to confirm the operation
 
+### How to Clean Up Old Kernels in Linux Mint (Recommended Method)
+
+1. Open **Update Manager** → go to **View → Linux Kernels**.  
+   Click the **Remove Kernels...** button at the bottom.  
+   Select all kernels from the old branch you want to remove and click **Remove**.
+
+2. Return to the main Update Manager window.  
+   When the old kernel package appears again in the updates list,  
+   right-click it → **Ignore all future updates for this package**.
+
+This two-step process safely removes the old kernels and prevents the meta-package from reinstalling them in the future.
+
 ## Setting up the Timeshift
 
 In the location tab, for the "Select Snapshot Location" field, select: dm-0. In the schedule tab, select the snapshot levels - month, and the number - 3. Other settings, leave by default.
