@@ -212,9 +212,7 @@ To install LaTex, run the command: `sudo apt install -y texlive-full latexmk`
 
 - https://www.davidrevoy.com/article854/krita-brushes-2021-bundle
 
-## Redshift\*
-
-### Installation
+## Redshift
 
 **Important Note:**  
 The classic Redshift installation is no longer relevant. Starting with Cinnamon 6.4 and newer, a native "Night Light" feature is available and works very well for most users, so Redshift is usually not needed anymore.
