@@ -98,7 +98,7 @@ flatpak install flathub com.vivaldi.Vivaldi -y
 # Installing telegram
 echo -en "\033[1;33m Installing telegram from flatpak... \033[0m \n"
 flatpak install flathub org.telegram.desktop -y
-flatpak override org.telegram.desktop --user --filesystem=home
+# flatpak override org.telegram.desktop --user --filesystem=home
 
 # Installing bitwarden
 echo -en "\033[1;33m Installing bitwarden from flatpak... \033[0m \n"
